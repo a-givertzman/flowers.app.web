@@ -17,28 +17,13 @@ import { User } from './user';
 //     });
 // })(jQuery);
 
-var data = [
-    {
-        id: 0,
-        text: 'enhancement'
-    },
-    {
-        id: 1,
-        text: 'bug'
-    },
-    {
-        id: 2,
-        text: 'duplicate'
-    },
-    {
-        id: 3,
-        text: 'invalid'
-    },
-    {
-        id: 4,
-        text: 'wontfix'
-    }
-];
+var data = getData('client', ['*'], 'id', 'ASC', [], '%', 0).then(data => {
+    console.log('data', data);
+    data = data.map(item => {
+        return {id: item.id, text: item.name};
+    });
+    console.log('data', data);
+});
 
 $(function() {
     $('.search-purchase-select').select2({
@@ -108,3 +93,56 @@ window.addEventListener(                                            // ON LOAD W
         // document.querySelector('.slider-1').style.backgroundImage = slider_1_background_img;
         // setFormState(USER);
 });
+
+
+function getData(
+    tableName, 
+    keys = null, 
+    orderBy = 'id', 
+    order = 'ASC', 
+    searchField = [], 
+    searchValue = '%',
+    limit,
+    url = 'https://u1489690.isp.regruhosting.ru/getData.php'
+  ) {
+    console.log('[FlowersApp.MySqlDB.getData]');
+    var postData = {
+      tableName: JSON.stringify(tableName),
+      keys: JSON.stringify(keys),
+      orderBy: JSON.stringify(orderBy),
+      order: order,
+      searchField: JSON.stringify(searchField),
+      searchValue: JSON.stringify(searchValue),
+      limit: limit,
+    };
+
+    var options = {
+      'method' : 'post',
+      'payload' : postData,
+      'muteHttpExceptions': true,
+      'validateHttpsCertificates' : false
+    };
+    return fetch(url, options).then(response => {
+
+        var responseCode = response.getResponseCode();
+        var parsedData = JSON.parse(response);
+        var errCount = parsedData.errCount;
+        console.log('errCount: ', errCount);
+        if (errCount > 0) {
+          var errDump = parsedData.errDump;
+          console.log('errDump: ', errDump);
+          var ui = SpreadsheetApp.getUi();
+          ui.alert('Ошибка сервера', errDump, ui.ButtonSet.OK);
+        }
+    
+        if (responseCode == 200) {
+          var data = parsedData.data;
+          // console.log('data: ', data);
+          return data;
+        } else {
+          var responseText = response.getContentText();
+          var ui = SpreadsheetApp.getUi();
+          ui.alert('Ошибка', '[' + responseCode + '] ' + responseText, ui.ButtonSet.OK);
+        }
+    });
+  }
