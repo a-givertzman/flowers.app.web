@@ -1,8 +1,9 @@
 @import './normalize.css';
 @import './fonts.css';
+@import '@plugins/select2-4.1.0-rc.0/dist/css/select2.min.css';
 
 :root{
-    --services-item-shadow-color: rgba(91, 89, 89, 0.14);
+    --purchase-selector-item-shadow-color: rgba(91, 89, 89, 0.14);
     --akcent-color: #ffc222;
     --granite-gray: #5e5e5e;
     --nero-color: #1b1b1b;
@@ -273,35 +274,36 @@ header{
     transform: translate(-50%, -50%);
 }
 
-/* SERVICES */
-.services{
+/* purchase-selector */
+.purchase-selector{
     padding: 50px 0 30px;
 }
 
-.services-top{
+.purchase-selector-top{
     display: flex;
     justify-content: space-between;
     margin-bottom: 60px;
 }
 
-.services-title-box,
+.purchase-selector-title-box,
 .form-title-box{
     position: relative;
-    max-width: 700px;
+    /* max-width: 700px; */
+    width: 100%;
     padding-left: 140px;
 }
-.services-title-box:before,
+.purchase-selector-title-box:before,
 .form-title-box:before{
     content: '';
     position: absolute;
     width: 100px;
     height: 2px;
     left: 0px;
-    top: 11px;  /* половина высоты services-title - половина толщины самой линии */
+    top: 11px;  /* половина высоты purchase-selector-title - половина толщины самой линии */
     background-color: var(--akcent-color);
 }
 
-.services-title,
+.purchase-selector-title,
 .form-title{
     font-size: 24px;
     font-weight: 500;
@@ -311,39 +313,55 @@ header{
     margin-bottom: 10px;
 }
 
-.services-text{
-    letter-spacing: 0.1px;
+.purchase-selector-search{
+    /* letter-spacing: 0.1px; */
+    margin: 0 40px 0 0;
 }
-.services-text + .services-text{
+.search-purchase-select{
+    width: 100%;
     padding-top: 12px;
-}
-
-.services-btn{
     font-family: 'Rubik', serif;
     line-height: 24px;
     letter-spacing: 0.25px;
     padding: 5px 38px;
     white-space: nowrap;
+    outline: none;
+    /* height: 24; */
+    border: solid 3px var(--whisper-color);
+}
+.search-purchase-select *:focus{
+    outline: none;
+}
+
+.purchase-selector-btn-cover{
+    margin-top: auto;
+}
+.purchase-selector-btn{
+    font-family: 'Rubik', serif;
+    line-height: 24px;
+    letter-spacing: 0.25px;
+    padding: 0px 38px;
+    white-space: nowrap;
     /* height: 24; */
     border: solid 3px var(--whisper-color);
 }
 
-.services-items{
+.purchase-selector-items{
     display: flex;
     justify-content: space-between;
 }
 
-.services-item{
+.purchase-selector-item{
     position: relative;
     max-width: 360px;
     min-height: 375px;
     text-align: center;
     padding: 30px 0 80px;
     background-color: #f9f9f9;
-    box-shadow: 0px 7px 24px 3px var(--services-item-shadow-color);
+    box-shadow: 0px 7px 24px 3px var(--purchase-selector-item-shadow-color);
 }
 
-.services-item-title{
+.purchase-selector-item-title{
     color: var(--dusty-grey-color);
     line-height: 24px;
     font-size: 18px;
@@ -352,18 +370,18 @@ header{
     padding: 24px 40px;
 }
 
-.services-item-text{
+.purchase-selector-item-text{
     letter-spacing: 0.1px;
     padding: 0px 40px 30px;
 }
 
-.services-item-cover{
+.purchase-selector-item-cover{
     position: absolute;
     bottom: 40px;
     margin: 0 auto;
 }
 
-.services-item-link{
+.purchase-selector-item-link{
     color: var(--black-color);
     font-family: 'Rubik', serif;
     border-bottom: solid 1px var(--black-color);
@@ -372,7 +390,7 @@ header{
 
 /* SECTION ABOUT */
 .about{
-    background-image: url("../img/about-background.png");
+    /* background-image: url("../img/about-background.png"); */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom;
@@ -420,7 +438,7 @@ header{
 }
 
 .form-box{
-    background-image: url("../img/form-box-img.png");
+    /* background-image: url("../img/form-box-img.png"); */
     background-repeat: no-repeat;
     background-size: 270px auto;
     background-position: bottom right;
@@ -553,7 +571,7 @@ header{
 
 /* ADVANTAGES */
 .advantages{
-    background-image: url("@img/advantages-background.png");
+    /* background-image: url("@img/advantages-background.png"); */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

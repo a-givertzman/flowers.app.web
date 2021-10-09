@@ -1,7 +1,7 @@
 import { clearCookie, getCookie, setCookie } from './cookie';
 import '@plugins/slick-slider/slick.css';
-import '@plugins/jquery-form-styler/jquery.formstyler.css';
-import '@plugins/jquery-form-styler/jquery.formstyler.theme.css';
+// import '@plugins/jquery-form-styler/jquery.formstyler.css';
+// import '@plugins/jquery-form-styler/jquery.formstyler.theme.css';
 import './css/style.css';
 import './css/media.css';
 // import slider_1_background_img from '@img/slider-background.png';
@@ -9,13 +9,45 @@ import './css/media.css';
 import { User } from './user';
 
 // JQUERY FORM STYLER
-(function($) {
-    $(function() {
-        $('select').styler({
-            selectSmartPositioning: true,
-        });
+// (function($) {
+//     $(function() {
+//         $('select').styler({
+//             selectSmartPositioning: true,
+//         });
+//     });
+// })(jQuery);
+
+var data = [
+    {
+        id: 0,
+        text: 'enhancement'
+    },
+    {
+        id: 1,
+        text: 'bug'
+    },
+    {
+        id: 2,
+        text: 'duplicate'
+    },
+    {
+        id: 3,
+        text: 'invalid'
+    },
+    {
+        id: 4,
+        text: 'wontfix'
+    }
+];
+
+$(function() {
+    $('.search-purchase-select').select2({
+        placeholder: 'ID / ФИО / номер телефона',
+        width: 'resolve', // need to override the changed default
+        data: data,
     });
-})(jQuery);
+});
+
 
 const form = document.querySelector('#booking-form');
 const dateInput = document.querySelector('#date-input');

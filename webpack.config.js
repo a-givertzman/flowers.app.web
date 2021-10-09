@@ -8,7 +8,8 @@ module.exports = {
     entry: {
         app: [
             './src/plugins/slick-slider/slick.js',
-            './src/plugins/jquery-form-styler/jquery.formstyler.js',
+            // './src/plugins/jquery-form-styler/jquery.formstyler.js',
+            './src/plugins/select2-4.1.0-rc.0/dist/js/select2.min.js',
             './src/app.js', 
         ],
     },
