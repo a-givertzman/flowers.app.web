@@ -4,6 +4,7 @@ const webpack = require('webpack');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 
 module.exports = {
+    mode: 'development',
     entry: {
         app: [
             './src/plugins/slick-slider/slick.js',
@@ -30,8 +31,7 @@ module.exports = {
         alias: {
             '@plugins': path.resolve(__dirname, 'src/plugins'),
             '@fonts': path.resolve(__dirname, 'src/css/fonts'),
-            '@img': path.resolve(__dirname, 'src/img'),
-            '@news': path.resolve(__dirname, 'src/news'),
+            '@img': path.resolve(__dirname, 'src/img')
             // '@':    path.resolve(__dirname, 'src'),
         },
     },
@@ -41,20 +41,20 @@ module.exports = {
     },
     plugins: [
         new HTMLPlugin({
-            title: 'Уборка жилых помещений',
+            title: 'Отчет по закупке',
             template: './src/index.html',
             filename: 'index.html',
         }),
-        new HTMLPlugin({
-            title: 'Расчет стоимости уборки помещения',
-            template: './src/cleaning-calc.html',
-            filename: 'cleaning-calc.html',
-        }),
-        new HTMLPlugin({
-            title: 'Заказать уборку помещения',
-            template: './src/bookong.html',
-            filename: 'bookong.html',
-        }),
+        // new HTMLPlugin({
+        //     title: 'Расчет стоимости уборки помещения',
+        //     template: './src/cleaning-calc.html',
+        //     filename: 'cleaning-calc.html',
+        // }),
+        // new HTMLPlugin({
+        //     title: 'Заказать уборку помещения',
+        //     template: './src/bookong.html',
+        //     filename: 'bookong.html',
+        // }),
         new CleanWebpackPlugin(),
         new webpack.ProvidePlugin({
             $: "jquery",

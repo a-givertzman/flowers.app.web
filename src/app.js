@@ -8,30 +8,6 @@ import './css/media.css';
 // import header_logo_img from '@img/header-logo.png';
 import { User } from './user';
 
-$(function() {
-    // MAIN SLIDER
-    $('.slider-items').slick({
-        prevArrow: '<button type="button" class="slick-prev slider-nav-btn"></button>',
-        nextArrow: '<button type="button" class="slick-next slider-nav-btn"></button>',
-        autoplay: false,
-        infinite: false,
-    });
-    // NEWS SLIDER
-    $('.news-slider-items').slick({
-        // dots: true,
-        prevArrow: '<button type="button" class="news-slick-prev slider-nav-btn"></button>',
-        nextArrow: '<button type="button" class="news-slick-next slider-nav-btn"></button>',
-        autoplay: false,
-        infinite: false,
-        slidesToShow: 1,
-        centerMode: true,
-        variableWidth: true,
-        slidesToShow: 3,
-        initialSlide: 1,
-    });
-});
-
-
 // JQUERY FORM STYLER
 (function($) {
     $(function() {

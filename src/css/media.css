@@ -73,17 +73,6 @@
         display: block;
     }
 
-    /* SLIDER */
-    .slider .slider-nav-btn{
-        visibility: hidden;
-    }
-    .slider-title{
-        font-size: 24px;
-    }
-    .slider-text{
-        font-size: 16px;
-    }
-
     /* SERVICES */
     .services-item{
         max-width: 100%;
@@ -108,20 +97,6 @@
         margin: 20px 0px 0px auto;
     }
 
-    /* NEWS */
-    .news{
-        padding: 60px 0 30px;
-    }
-    .news-top{
-        flex-direction: column;
-        align-items: center;
-    }
-    .news-title-box{
-        margin-bottom: 30px;
-    }
-    .news .slider-nav-btn{
-        visibility: hidden;
-    }
     .footer-box{
         flex-direction: column;
         align-items: center;
@@ -163,9 +138,5 @@
 @media (min-width: 700px){
     .menu ul{
         display: block !important;
-    }
-    /* SLIDER */
-    .slider-nav-btn{
-        visibility: visible;
     }
 }
