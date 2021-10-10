@@ -207,12 +207,12 @@ class BusyIndicator {
         this.busyIndicator = document.querySelector(selector);
     }
     show() {
-        this.busyIndicator.classList.remove(hiddenClassName);
+        this.busyIndicator.classList.remove(this.hiddenClassName);
     }
     hide() {
-        this.busyIndicator.classList.add(hiddenClassName);
+        this.busyIndicator.classList.add(this.hiddenClassName);
     }
     toggle() {
-        this.busyIndicator.classList.toggle(hiddenClassName)
+        this.busyIndicator.classList.toggle(this.hiddenClassName)
     }
 };
