@@ -231,49 +231,6 @@ header{
     right: -12px;
 }
 
-.slider-nav-btn{
-    z-index: 2;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 40px;
-    height: 40px;
-    color: #fff;
-    border: solid 1px;
-    cursor: pointer;
-    outline: none;
-    background-color: var(--akcent-color);
-}
-
-.slider-nav-btn.slick-disabled{
-    cursor: default;
-    background-color: transparent;
-}
-
-.slick-prev{
-    left: 0;
-}
-.slick-prev:after{
-    content: "\f104";
-    font-family: "icomoon";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.slick-next{
-    right: 0;
-}
-.slick-next:after{
-    content: "\f105";
-    font-family: "icomoon";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
 /* purchase-selector */
 .purchase-selector{
     padding: 50px 0 30px;
@@ -285,26 +242,14 @@ header{
     margin-bottom: 60px;
 }
 
-.purchase-selector-title-box,
-.form-title-box{
+.purchase-selector-title-box{
     position: relative;
     /* max-width: 700px; */
     width: 100%;
     padding-left: 140px;
 }
-.purchase-selector-title-box:before,
-.form-title-box:before{
-    content: '';
-    position: absolute;
-    width: 100px;
-    height: 2px;
-    left: 0px;
-    top: 11px;  /* половина высоты purchase-selector-title - половина толщины самой линии */
-    background-color: var(--akcent-color);
-}
 
-.purchase-selector-title,
-.form-title{
+.purchase-selector-title{
     font-size: 24px;
     font-weight: 500;
     font-family: 'Rubik', serif;
@@ -331,6 +276,9 @@ header{
 }
 .search-purchase-select *:focus{
     outline: none;
+}
+.search_term_hilite{
+    background-color: #ffc222;
 }
 
 .purchase-selector-btn-cover{
@@ -361,7 +309,53 @@ header{
     box-shadow: 0px 7px 24px 3px var(--purchase-selector-item-shadow-color);
 }
 
-.purchase-selector-item-title{
+/* PUTCHASE_TABLE */
+table{
+    width: 100%;
+    table-layout: auto;
+    border: none; 
+    border-collapse: collapse;
+}
+table tr{
+    width: 100%;
+    display: inline-block;
+    border-top: solid #5e5e5e  0.1px;
+    border-bottom: solid #5e5e5e  0.1px;
+}
+table th,
+table td{
+    overflow: hidden;
+    border-left: solid #5e5e5e  0.1px;
+}
+table th:first-child { border-left: solid #5e5e5e  0.1px; }
+table th:last-child { border-left: solid #5e5e5e  0.1px; }
+table td:first-child { border-left: solid #5e5e5e  0.1px; }
+table td:last-child { border-left: solid #5e5e5e  0.1px; }
+
+/* .id{width: 20px;}
+.client-id{width: 10px;}
+.client-group{width: 10px;}
+.client-name{width: 10px;}
+.client-phone{width: 10px;}
+.client-account{width: 10px;}
+.purchase_content-id{width: 10px;}
+.product-id{width: 10px;}
+.product-group{width: 10px;}
+.product-name{width: 10px;}
+.product-order_quantity{width: 10px;}
+.count{width: 10px;}
+.distributed{width: 10px;}
+.product-primary_price{width: 10px;}
+.product-primary_currency{width: 10px;}
+.purchase_content-sale_price{width: 10px;}
+.purchase_content-sale_currency{width: 10px;}
+.purchase_content-shipping{width: 10px;}
+.cost{width: 10px;}
+.paid{width: 10px;}
+.torefound{width: 10px;}
+.refounded{width: 10px;} */
+
+.purchase-item-title{
     color: var(--dusty-grey-color);
     line-height: 24px;
     font-size: 18px;
@@ -386,244 +380,6 @@ header{
     font-family: 'Rubik', serif;
     border-bottom: solid 1px var(--black-color);
     margin-right: 60px;
-}
-
-/* SECTION ABOUT */
-.about{
-    /* background-image: url("../img/about-background.png"); */
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: bottom;
-    min-height: 300px;
-    max-height: 300px;
-    margin: 0 auto;
-    padding: 25px 0 45px;
-}
-.about-box{
-    max-width: 545px;
-    padding-left: 25px;
-}
-.about-title{
-    text-transform: uppercase;
-    line-height: 24px;
-    font-size: 24px;
-    font-weight: 500;
-    font-family: 'Rubik', serif;
-    letter-spacing: 1.5px;
-    margin-bottom: 20px;
-    color: #fff;
-}
-
-.about-text{
-    line-height: 24px;
-    font-size: 18px;
-    letter-spacing: 0.1px;
-    color: var(--light-grey-color);
-    margin: 0px 0 30px 0;
-}
-
-.about-btn{
-    outline: none;
-}
-.about-btn:after{
-    color: var(--eclips-color);
-}
-
-
-/* ФОРМА ЗАПИСИ НА КОНСУЛЬТАЦИЮ */
-.form{
-    min-height: 550px;
-    margin: 0 auto;
-    padding: 25px 0 0;
-}
-
-.form-box{
-    /* background-image: url("../img/form-box-img.png"); */
-    background-repeat: no-repeat;
-    background-size: 270px auto;
-    background-position: bottom right;
-    padding-right: 290px;
-}
-.form-box-inner label,
-.form-box-inner input,
-.form-box-inner textarea{
-    display: block;
-    width: 100%;
-}
-.form-box-inner label{
-    line-height: 36px;
-    color: #282828;
-    font-family: 'Rubik', serif;
-    position: relative;
-}
-.form-box-inner input{
-    margin-bottom: 8px;
-    outline: none;
-    height: 24px;
-    border: solid 1px var(--whisper-color);
-    padding: 0 10px;
-}
-.form-box-inner input[type="checkbox"]{
-    /* margin-bottom: 8px;
-    outline: none;
-    height: 24px;
-    border: solid 1px var(--whisper-color);
-    padding: 0 10px; */
-    background-color: #A59393;
-}
-.form-box-inner input[type="checkbox"]:checked{
-    /* margin-bottom: 8px;
-    outline: none;
-    height: 24px;
-    border: solid 1px var(--whisper-color);
-    padding: 0 10px; */
-    background-color: #373636;
-}
-.form-box-inner label > ::after{
-    content: '?';
-    position: absolute;
-    top: 50%; right: 10px;
-    transform: translate(0%, 25%);
-    height: 18px;
-    width: 18px;
-    color: #f9f9f9;
-    text-align: center;
-    line-height: 18px;
-    border: solid #fff;
-    border-radius: 50%;
-    background-color: #5e5e5e;
-    overflow: hidden;
-}
-
-/* SELECT BOX DROP DOWN */
-.form-box-inner select{
-    outline: none;
-}
-.form-box-inner .jq-selectbox.jqselect{
-    display: block;
-    width: 100%;
-}
-.form-box-inner .jq-selectbox__select{
-    height: 40px;
-    padding-left: 16px;
-    border: solid 1px var(--whisper-color);
-    border-radius: unset;
-    background: fixed transparent;
-    box-shadow: none;
-    text-shadow: none;
-    font-family: 'Rubik', serif;
-    font-size: 14px;
-    line-height: 36px;
-}
-.jq-selectbox__trigger{
-    border: none;
-}
-.jq-selectbox__trigger-arrow{
-    border: none;
-    top: 0;
-    right: 0;
-}
-.form-box-inner .jq-selectbox__trigger-arrow:before{
-    content: "\f105";
-    font-family: "icomoon";
-    position: absolute;
-    top: 0;
-    right: 16px;
-    transform: rotate(90deg) ;
-    color: var(--eclips-color);
-}
-
-.form-box-inner textarea{
-    /* margin-bottom: 8px; */
-    outline: none;
-    height: 207px;
-    border: solid 1px var(--whisper-color);
-    padding: 10px;
-    resize: none;
-}
-
-.form-cover{
-    max-width: 820px;
-    padding: 35px 0 35px;
-}
-
-.form-box-inner{
-    display: flex;
-    justify-content: space-between;
-}
-
-.form-box-left{
-    max-width: 230px;
-    width: 100%;
-    margin-right: 20px;
-}
-
-.form-box-right{
-    max-width: 555px;
-    width: 100%;
-}
-.form-box-right button{
-    white-space: nowrap;
-    background-color: transparent;
-    margin: 44px 0px 0px;
-    float: right;
-}
-
-/* ADVANTAGES */
-.advantages{
-    /* background-image: url("@img/advantages-background.png"); */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 300px;
-    /* max-height: 300px; */
-    margin: 0 auto;
-    padding: 60px 0 60px;
-}
-.advantages-box{
-    text-align: center;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-}
-.advantages-box-item{
-    position: relative;
-    max-width: 360px;
-    min-height: 375px;
-    padding: 30px 20px 80px;
-}
-.advantages-item-icon{
-    position: relative;
-    margin: 0 auto;
-    width: 40px;
-    height: 40px;
-    border: solid 2px var(--akcent-color);
-}
-.advantages-item-icon::after{
-    content: "\f00c";
-    font-family: "icomoon";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #fff;
-}
-.advantages-item-title{
-    text-transform: uppercase;
-    line-height: 24px;
-    font-size: 18px;
-    font-weight: 500;
-    font-family: 'Rubik', serif;
-    letter-spacing: 1.5px;
-    color: #fff;
-    margin: 25px 20px 30px;
-}
-
-.advantages-item-text{
-    line-height: 22px;
-    letter-spacing: 0.1px;
-    color: var(--light-grey-color);
-    margin: 0px 10% 0px 10% ;
 }
 
 /* FOOTER */

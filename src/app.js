@@ -1,4 +1,5 @@
 import { clearCookie, getCookie, setCookie } from './cookie';
+import { getData, getJoinData } from './mysql';
 import '@plugins/slick-slider/slick.css';
 // import '@plugins/jquery-form-styler/jquery.formstyler.css';
 // import '@plugins/jquery-form-styler/jquery.formstyler.theme.css';
@@ -17,24 +18,40 @@ import { User } from './user';
 //     });
 // })(jQuery);
 
-var data = getData('client', ['*'], 'id', 'ASC', [], '%', 0).then(data => {
-    console.log('data', data);
-    data = data.map(item => {
-        return {id: item.id, text: item.name};
-    });
-    console.log('data', data);
-});
+var data = null;
+
+function matchCustom(params, data) {
+    // If there are no search terms, return all of the data
+    if ($.trim(params.term) === '') {
+      return data;
+    }
+    // Do not display the item if there is no 'text' property
+    if (typeof data.text === 'undefined') {
+      return null;
+    }
+    // `params.term` should be the term that is used for searching
+    // `data.text` is the text that is displayed for the data object
+    if (data.text.indexOf(params.term) > -1) {
+      var modifiedData = $.extend({}, data, true);
+      modifiedData.text.replace(params.term, '<span class="search_term_hilite">' + params.term + '</span>');
+      // You can return modified objects from here
+      // This includes matching the `children` how you want in nested data sets
+      return modifiedData;
+    }
+    // Return `null` if the term should not be displayed
+    return null;
+}
 
 $(function() {
     $('.search-purchase-select').select2({
         placeholder: 'ID / ФИО / номер телефона',
         width: 'resolve', // need to override the changed default
-        data: data,
+        matcher: matchCustom
     });
 });
 
 
-const form = document.querySelector('#booking-form');
+const app_form = document.querySelector('#booking-form');
 const dateInput = document.querySelector('#date-input');
 const timeInput = document.querySelector('#time-input');
 const daurationInput = document.querySelector('#dauration-input');
@@ -78,6 +95,49 @@ showMenuBtn.addEventListener('click',(event) => {
 
 window.addEventListener(                                            // ON LOAD WINDOW
     'load', (event) => {
+        getData('client', ['*'], 'id', 'ASC', [], '%', 0).then(responseData => {
+            data = responseData;
+            for(var key in data) {
+                let item = data[key];
+                $('.search-purchase-select')
+                    .append(new Option(item.id + ' | ' + item.name + ' | ' + item.phone , item.id, false))
+                    .trigger('change');
+            }
+        });
+
+        $('.search-purchase-select').on('select2:select', e => {
+            var selectedId = e.params.data.id;
+            getJoinData(
+                'purchase_member', 
+                ['id','purchase/id','client/id','client/group','client/name','client/phone','client/account','purchase_content/id','product/id','product/group','product/name','product/order_quantity','count','distributed','product/primary_price','product/primary_currency','purchase_content/sale_price','purchase_content/sale_currency','purchase_content/shipping','cost','paid','torefound','refounded'], 
+                'purchase/id', 'ASC', 
+                ['client/id'], selectedId, 
+                0
+            ).then(responseData => {
+
+                console.log('responseData:', responseData);
+                var table = document.querySelector('table.purchase-items');
+                for (var key in responseData) {
+                    var rowData = responseData[key];
+                    
+                    console.log('rowData:', rowData);
+                    var row = renderRow(rowData);
+                    console.log('row:', row);
+                    table.append(row);
+                };
+            });
+            getData('purchase_member', ['*'], 'id', 'ASC', ['client/id'], selectedId, 0).then(responseData => {
+                
+                console.log('responseData:', responseData);
+            });
+            console.log('selection id:', e.params.data);
+        });
+        
+        $('.search-purchase-select').on('select2:unselect', e => {
+            var table = document.querySelector('table.purchase-items');
+            table.innerHTML = '';
+        });
+
         USER.name = getCookie('name');
         USER.email = getCookie('email');
         USER.group = getCookie('group');
@@ -95,54 +155,34 @@ window.addEventListener(                                            // ON LOAD W
 });
 
 
-function getData(
-    tableName, 
-    keys = null, 
-    orderBy = 'id', 
-    order = 'ASC', 
-    searchField = [], 
-    searchValue = '%',
-    limit,
-    url = 'https://u1489690.isp.regruhosting.ru/getData.php'
-  ) {
-    console.log('[FlowersApp.MySqlDB.getData]');
-    var postData = {
-      tableName: JSON.stringify(tableName),
-      keys: JSON.stringify(keys),
-      orderBy: JSON.stringify(orderBy),
-      order: order,
-      searchField: JSON.stringify(searchField),
-      searchValue: JSON.stringify(searchValue),
-      limit: limit,
-    };
-
-    var options = {
-      'method' : 'post',
-      'payload' : postData,
-      'muteHttpExceptions': true,
-      'validateHttpsCertificates' : false
-    };
-    return fetch(url, options).then(response => {
-
-        var responseCode = response.getResponseCode();
-        var parsedData = JSON.parse(response);
-        var errCount = parsedData.errCount;
-        console.log('errCount: ', errCount);
-        if (errCount > 0) {
-          var errDump = parsedData.errDump;
-          console.log('errDump: ', errDump);
-          var ui = SpreadsheetApp.getUi();
-          ui.alert('Ошибка сервера', errDump, ui.ButtonSet.OK);
-        }
-    
-        if (responseCode == 200) {
-          var data = parsedData.data;
-          // console.log('data: ', data);
-          return data;
-        } else {
-          var responseText = response.getContentText();
-          var ui = SpreadsheetApp.getUi();
-          ui.alert('Ошибка', '[' + responseCode + '] ' + responseText, ui.ButtonSet.OK);
-        }
-    });
-  }
+function renderRow(row) {
+    var rowHtml = `
+        <tr class="purchase-row">
+            <td class="id">${row['id']}</td>
+            <td class="client-id">${row['client/id']}</td>
+            <td class="client-group">${row['client/group']}</td>
+            <td class="client-name">${row['client/name']}</td>
+            <td class="client-phone">${row['client/phone']}</td>
+            <td class="client-account">${row['client/account']}</td>
+            <td class="purchase_content/id">${row['purchase_content/id']}</td>
+            <td class="product-id">${row['product/id']}</td>
+            <td class="product-group">${row['product/group']}</td>
+            <td class="product-name">${row['product/name']}</td>
+            <td class="product-order_quantity">${row['product/order_quantity']}</td>
+            <td class="count">${row['count']}</td>
+            <td class="distributed">${row['distributed']}</td>
+            <td class="product-primary_price">${row['product/primary_price']}</td>
+            <td class="product-primary_currency">${row['product/primary_currency']}</td>
+            <td class="purchase_content-sale_price">${row['purchase_content/sale_price']}</td>
+            <td class="purchase_content-sale_currency">${row['purchase_content/sale_currency']}</td>
+            <td class="purchase_content-shipping">${row['purchase_content/shipping']}</td>
+            <td class="cost">${row['cost']}</td>
+            <td class="paid">${row['paid']}</td>
+            <td class="torefound">${row['torefound']}</td>
+            <td class="refounded">${row['refounded']}</td>
+        </tr>
+    `;
+    var newRow = document.createElement('tr');
+    newRow.innerHTML = rowHtml.trim();
+    return newRow;
+}

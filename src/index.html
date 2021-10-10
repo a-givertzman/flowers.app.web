@@ -50,154 +50,63 @@
                         </select>                    
                     </div>
                 </div>
-                <div class="purchase-selector-btn-cover">
-                    <a href="#" class="purchase-selector-btn">
-                        Посмотреть
-                    </a>
-                </div>
             </div>
-            <div class="purchase-selector-items">
-                <div class="purchase-selector-item">
-                    <!-- <img class="purchase-selector-image" src="<%=require('./img/purchase-selector-1.png')%>"> -->
-                    <div class="purchase-selector-item-title">
-                        Мы крутые
-                    </div>
-                    <div class="purchase-selector-item-text">
-                        Тут поподробнее о себе и чем оно полезно заказчику
-                    </div>
-                    <div class="purchase-selector-item-btn-cover">
-                        <a href="#" class="purchase-selector-item-link">Подробнее</a>
-                        <a href="#" class="purchase-selector-item-btn default-btn-black">Заявка</a>
-                    </div>
-                </div>
-                <div class="purchase-selector-item">
-                    <!-- <img class="purchase-selector-image" src="<%=require('./img/purchase-selector-1.png')%>"> -->
-                    <div class="purchase-selector-item-title">
-                        Мы аккуратные
-                    </div>
-                    <div class="purchase-selector-item-text">
-                        Тут поподробнее о себе и чем оно полезно заказчику
-                    </div>
-                    <div class="purchase-selector-item-btn-cover">
-                        <a href="#" class="purchase-selector-item-link">Подробнее</a>
-                        <a href="#" class="purchase-selector-item-btn default-btn-black">Заявка</a>
-                    </div>
-                </div>
-                <div class="purchase-selector-item">
-                    <!-- <img class="purchase-selector-image" src="<%=require('./img/purchase-selector-1.png')%>"> -->
-                    <div class="purchase-selector-item-title">
-                        Мы ответственные
-                    </div>
-                    <div class="purchase-selector-item-text">
-                        Тут поподробнее о себе и чем оно полезно заказчику
-                    </div>
-                    <div class="purchase-selector-item-btn-cover">
-                        <a href="#" class="purchase-selector-item-link">Подробнее</a>
-                        <a href="#" class="purchase-selector-item-btn default-btn-black">Заявка</a>
-                    </div>
-                </div>
+            <div class="purchase-item">
+                <span> Закупки </span>
             </div>
-        </div>
-    </section>
-    <section class="about">
-        <div class="container">
-            <div class="about-box">
-                <div class="about-title">
-                    Кратко о нас
-                </div>
-                <div class="about-text">
-                    Чуть больше о том какие мы полезные
-                    и как много интересного мы умеем
-                </div>
-                 <a href="#" class="about-btn default-btn-white">
-                    Что еще
-                </a>
+            <div class="purchase-title">
+                <span> Закупка </span>
             </div>
-        </div>
-    </section>
-    <section class="form">
-        <div class="container">
-            <div class="form-box">
-                <div class="form-title-box">
-                    <div class="form-title">
-                        Получить консультацию
-                    </div>
-                </div>
-                <div class="form-cover">
-                    <form action="submit" class="">
-                        <div class="form-box-inner">
-                            <div class="form-box-left">
-                                <label for="">
-                                    E-mail
-                                    <input type="text">
-                                </label>
-                                <label for="">
-                                     Контактный телефон
-                                    <input type="text">
-                                </label>
-                                <label for="">
-                                    ФИО
-                                    <input type="text">
-                                </label>
-                                <label for="">
-                                    Тема вопроса
-                                    <select name="" id="">
-                                        <option value="">0 ------------</option>
-                                        <option value="">1 ------------</option>
-                                        <option value="">2 ------------</option>
-                                        <option value="">3 ------------</option>
-                                    </select>
-                                </label>
-                            </div>
-                            <div class="form-box-right">
-                                <label for="">
-                                    Текст вопроса
-                                    <textarea name="" id="" cols="30" rows="10"></textarea>
-                                </label>
-                                <button class="default-btn-black" type="submit">Получить консультацию</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="form-box-image">
-                    <!-- <div class="about-1-image-content">
-
-                    </div> -->
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="advantages">
-        <div class="container">
-            <div class="advantages-box">
-                <div class="advantages-item">
-                    <div class="advantages-item-icon"></div>
-                    <div class="advantages-item-title">
-                        Качество работ
-                    </div>
-                    <div class="advantages-item-text">
-                        Тут поподробнее о том как мы качественно выполняем работы
-                    </div>
-                </div>
-                <div class="advantages-item">
-                    <div class="advantages-item-icon"></div>
-                    <div class="advantages-item-title">
-                        Качество работ
-                    </div>
-                    <div class="advantages-item-text">
-                        Тут поподробнее о том как мы качественно выполняем работы
-                    </div>
-                </div>
-                <div class="advantages-item">
-                    <div class="advantages-item-icon"></div>
-                    <div class="advantages-item-title">
-                        Качество работ
-                    </div>
-                    <div class="advantages-item-text">
-                        Тут поподробнее о том как мы качественно выполняем работы
-                    </div>
-                </div>
-            </div>
+            <table class="purchase-items">
+                <tr class="purchase-row">
+                    <th class="id">id</th>
+                    <th class="client-id">client/id</th>
+                    <th class="client-group">client/group</th>
+                    <th class="client-name">client/name</th>
+                    <th class="client-phone">client/phone</th>
+                    <th class="client-account">client/account</th>
+                    <th class="purchase_content/id">purchase_content/id</th>
+                    <th class="product-id">product/id</th>
+                    <th class="product-group">product/group</th>
+                    <th class="product-name">product/name</th>
+                    <th class="product-order_quantity">product/order_quantity</th>
+                    <th class="count">count</th>
+                    <th class="distributed">distributed</th>
+                    <th class="product-primary_price">product/primary_price</th>
+                    <th class="product-primary_currency">product/primary_currency</th>
+                    <th class="purchase_content-sale_price">purchase_content/sale_price</th>
+                    <th class="purchase_content-sale_currency">purchase_content/sale_currency</th>
+                    <th class="purchase_content-shipping">purchase_content/shipping</th>
+                    <th class="cost">cost</th>
+                    <th class="paid">paid</th>
+                    <th class="torefound">torefound</th>
+                    <th class="refounded">refounded</th>
+                </tr>
+                <tr class="purchase-row">
+                    <td class="id">id</td>
+                    <td class="client-id">client/id</td>
+                    <td class="client-group">client/group</td>
+                    <td class="client-name">client/name</td>
+                    <td class="client-phone">client/phone</td>
+                    <td class="client-account">client/account</td>
+                    <td class="purchase_content/id">purchase_content/id</td>
+                    <td class="product-id">product/id</td>
+                    <td class="product-group">product/group</td>
+                    <td class="product-name">product/name</td>
+                    <td class="product-order_quantity">product/order_quantity</td>
+                    <td class="count">count</td>
+                    <td class="distributed">distributed</td>
+                    <td class="product-primary_price">product/primary_price</td>
+                    <td class="product-primary_currency">product/primary_currency</td>
+                    <td class="purchase_content-sale_price">purchase_content/sale_price</td>
+                    <td class="purchase_content-sale_currency">purchase_content/sale_currency</td>
+                    <td class="purchase_content-shipping">purchase_content/shipping</td>
+                    <td class="cost">cost</td>
+                    <td class="paid">paid</td>
+                    <td class="torefound">torefound</td>
+                    <td class="refounded">refounded</td>
+                </tr>
+            </table>
         </div>
     </section>
     <footer class="footer">
