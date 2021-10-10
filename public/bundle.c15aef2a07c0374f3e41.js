@@ -482,7 +482,7 @@ var media_update = injectStylesIntoStyleTag_default()(media/* default */.Z, medi
 // })(jQuery);
 
 var data = null;
-var busyIndicator = new BusyIndicator('.busy-indicator', 'busy-indicator-hide')
+var busyIndicator;
 
 function matchCustom(params, data) {
     // If there are no search terms, return all of the data
@@ -559,6 +559,7 @@ showMenuBtn.addEventListener('click',(event) => {
 
 window.addEventListener(                                            // ON LOAD WINDOW
     'load', (event) => {
+        busyIndicator = new BusyIndicator('.busy-indicator', 'busy-indicator-hide')
         // загружаем список клиентов
         busyIndicator.show();
         getData('client', ['*'], 'id', 'ASC', [], '%', 0).then(responseData => {
