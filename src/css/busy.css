@@ -1,3 +1,9 @@
+.busy-indicator-show{
+    display: block;
+}
+.busy-indicator-hide{
+    display: none;
+}
 .busy-indicator{
     position: absolute;
     width: 100%;
@@ -10,7 +16,6 @@
   top: 50%;
   transform: translateY(-50%);
   color: official;
-  display: inline-block;
   position: relative;
   width: 80px;
   height: 80px;

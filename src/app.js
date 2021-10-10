@@ -19,6 +19,7 @@ import { User } from './user';
 // })(jQuery);
 
 var data = null;
+var busyIndicator = new BusyIndicator('.busy-indicator', 'busy-indicator-hide')
 
 function matchCustom(params, data) {
     // If there are no search terms, return all of the data
@@ -95,6 +96,8 @@ showMenuBtn.addEventListener('click',(event) => {
 
 window.addEventListener(                                            // ON LOAD WINDOW
     'load', (event) => {
+        // загружаем список клиентов
+        busyIndicator.show();
         getData('client', ['*'], 'id', 'ASC', [], '%', 0).then(responseData => {
             data = responseData;
             for(var key in data) {
@@ -103,10 +106,15 @@ window.addEventListener(                                            // ON LOAD W
                     .append(new Option(item.id + ' | ' + item.name + ' | ' + item.phone , item.id, false))
                     .trigger('change');
             }
+            busyIndicator.hide();
+        }).catch(e => {
+            busyIndicator.hide();
         });
 
+        // загружаем закупки выбранного клиента
         $('.search-purchase-select').on('select2:select', e => {
             var selectedId = e.params.data.id;
+            busyIndicator.show();
             getJoinData(
                 'purchase_member', 
                 ['id','purchase/id','client/id','client/group','client/name','client/phone','client/account','purchase_content/id','product/id','product/group','product/name','product/order_quantity','count','distributed','product/primary_price','product/primary_currency','purchase_content/sale_price','purchase_content/sale_currency','purchase_content/shipping','cost','paid','torefound','refounded'], 
@@ -125,7 +133,11 @@ window.addEventListener(                                            // ON LOAD W
                     console.log('row:', row);
                     table.append(row);
                 };
+                busyIndicator.hide();
+            }).catch(e => {
+                busyIndicator.hide();
             });
+
             getData('purchase_member', ['*'], 'id', 'ASC', ['client/id'], selectedId, 0).then(responseData => {
                 
                 console.log('responseData:', responseData);
@@ -186,3 +198,20 @@ function renderRow(row) {
     newRow.innerHTML = rowHtml.trim();
     return newRow;
 }
+
+class BusyIndicator {
+    constructor(selector, hiddenClassName) {
+        this.selector = selector;
+        this.hiddenClassName = hiddenClassName;
+        this.busyIndicator = document.querySelector(selector);
+    }
+    show() {
+        this.busyIndicator.classList.remove(hiddenClassName);
+    }
+    hide() {
+        this.busyIndicator.classList.add(hiddenClassName);
+    }
+    toggle() {
+        this.busyIndicator.classList.toggle(hiddenClassName)
+    }
+};

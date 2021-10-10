@@ -17,7 +17,7 @@
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".busy-indicator{\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    background-color: rgba(0, 0, 0, 0.7);\n    z-index: 1000;\n}\n.lds-spinner {\n  margin: auto;\n  top: 50%;\n  transform: translateY(-50%);\n  color: official;\n  display: inline-block;\n  position: relative;\n  width: 80px;\n  height: 80px;\n}\n.lds-spinner div {\n  transform-origin: 40px 40px;\n  animation: lds-spinner 1.2s linear infinite;\n}\n.lds-spinner div:after {\n  content: \" \";\n  display: block;\n  position: absolute;\n  top: 3px;\n  left: 37px;\n  width: 6px;\n  height: 18px;\n  border-radius: 20%;\n  background: #fff;\n}\n.lds-spinner div:nth-child(1) {\n  transform: rotate(0deg);\n  animation-delay: -1.1s;\n}\n.lds-spinner div:nth-child(2) {\n  transform: rotate(30deg);\n  animation-delay: -1s;\n}\n.lds-spinner div:nth-child(3) {\n  transform: rotate(60deg);\n  animation-delay: -0.9s;\n}\n.lds-spinner div:nth-child(4) {\n  transform: rotate(90deg);\n  animation-delay: -0.8s;\n}\n.lds-spinner div:nth-child(5) {\n  transform: rotate(120deg);\n  animation-delay: -0.7s;\n}\n.lds-spinner div:nth-child(6) {\n  transform: rotate(150deg);\n  animation-delay: -0.6s;\n}\n.lds-spinner div:nth-child(7) {\n  transform: rotate(180deg);\n  animation-delay: -0.5s;\n}\n.lds-spinner div:nth-child(8) {\n  transform: rotate(210deg);\n  animation-delay: -0.4s;\n}\n.lds-spinner div:nth-child(9) {\n  transform: rotate(240deg);\n  animation-delay: -0.3s;\n}\n.lds-spinner div:nth-child(10) {\n  transform: rotate(270deg);\n  animation-delay: -0.2s;\n}\n.lds-spinner div:nth-child(11) {\n  transform: rotate(300deg);\n  animation-delay: -0.1s;\n}\n.lds-spinner div:nth-child(12) {\n  transform: rotate(330deg);\n  animation-delay: 0s;\n}\n@keyframes lds-spinner {\n  0% {\n    opacity: 1;\n  }\n  100% {\n    opacity: 0;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".busy-indicator-show{\n    display: block;\n}\n.busy-indicator-hide{\n    display: none;\n}\n.busy-indicator{\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    background-color: rgba(0, 0, 0, 0.7);\n    z-index: 1000;\n}\n.lds-spinner {\n  margin: auto;\n  top: 50%;\n  transform: translateY(-50%);\n  color: official;\n  position: relative;\n  width: 80px;\n  height: 80px;\n}\n.lds-spinner div {\n  transform-origin: 40px 40px;\n  animation: lds-spinner 1.2s linear infinite;\n}\n.lds-spinner div:after {\n  content: \" \";\n  display: block;\n  position: absolute;\n  top: 3px;\n  left: 37px;\n  width: 6px;\n  height: 18px;\n  border-radius: 20%;\n  background: #fff;\n}\n.lds-spinner div:nth-child(1) {\n  transform: rotate(0deg);\n  animation-delay: -1.1s;\n}\n.lds-spinner div:nth-child(2) {\n  transform: rotate(30deg);\n  animation-delay: -1s;\n}\n.lds-spinner div:nth-child(3) {\n  transform: rotate(60deg);\n  animation-delay: -0.9s;\n}\n.lds-spinner div:nth-child(4) {\n  transform: rotate(90deg);\n  animation-delay: -0.8s;\n}\n.lds-spinner div:nth-child(5) {\n  transform: rotate(120deg);\n  animation-delay: -0.7s;\n}\n.lds-spinner div:nth-child(6) {\n  transform: rotate(150deg);\n  animation-delay: -0.6s;\n}\n.lds-spinner div:nth-child(7) {\n  transform: rotate(180deg);\n  animation-delay: -0.5s;\n}\n.lds-spinner div:nth-child(8) {\n  transform: rotate(210deg);\n  animation-delay: -0.4s;\n}\n.lds-spinner div:nth-child(9) {\n  transform: rotate(240deg);\n  animation-delay: -0.3s;\n}\n.lds-spinner div:nth-child(10) {\n  transform: rotate(270deg);\n  animation-delay: -0.2s;\n}\n.lds-spinner div:nth-child(11) {\n  transform: rotate(300deg);\n  animation-delay: -0.1s;\n}\n.lds-spinner div:nth-child(12) {\n  transform: rotate(330deg);\n  animation-delay: 0s;\n}\n@keyframes lds-spinner {\n  0% {\n    opacity: 1;\n  }\n  100% {\n    opacity: 0;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -482,6 +482,7 @@ var media_update = injectStylesIntoStyleTag_default()(media/* default */.Z, medi
 // })(jQuery);
 
 var data = null;
+var busyIndicator = new BusyIndicator('.busy-indicator', 'busy-indicator-hide')
 
 function matchCustom(params, data) {
     // If there are no search terms, return all of the data
@@ -558,6 +559,8 @@ showMenuBtn.addEventListener('click',(event) => {
 
 window.addEventListener(                                            // ON LOAD WINDOW
     'load', (event) => {
+        // загружаем список клиентов
+        busyIndicator.show();
         getData('client', ['*'], 'id', 'ASC', [], '%', 0).then(responseData => {
             data = responseData;
             for(var key in data) {
@@ -566,10 +569,15 @@ window.addEventListener(                                            // ON LOAD W
                     .append(new Option(item.id + ' | ' + item.name + ' | ' + item.phone , item.id, false))
                     .trigger('change');
             }
+            busyIndicator.hide();
+        }).catch(e => {
+            busyIndicator.hide();
         });
 
+        // загружаем закупки выбранного клиента
         $('.search-purchase-select').on('select2:select', e => {
             var selectedId = e.params.data.id;
+            busyIndicator.show();
             getJoinData(
                 'purchase_member', 
                 ['id','purchase/id','client/id','client/group','client/name','client/phone','client/account','purchase_content/id','product/id','product/group','product/name','product/order_quantity','count','distributed','product/primary_price','product/primary_currency','purchase_content/sale_price','purchase_content/sale_currency','purchase_content/shipping','cost','paid','torefound','refounded'], 
@@ -588,7 +596,11 @@ window.addEventListener(                                            // ON LOAD W
                     console.log('row:', row);
                     table.append(row);
                 };
+                busyIndicator.hide();
+            }).catch(e => {
+                busyIndicator.hide();
             });
+
             getData('purchase_member', ['*'], 'id', 'ASC', ['client/id'], selectedId, 0).then(responseData => {
                 
                 console.log('responseData:', responseData);
@@ -649,6 +661,24 @@ function renderRow(row) {
     newRow.innerHTML = rowHtml.trim();
     return newRow;
 }
+
+class BusyIndicator {
+    constructor(selector, hiddenClassName) {
+        this.selector = selector;
+        this.hiddenClassName = hiddenClassName;
+        this.busyIndicator = document.querySelector(selector);
+    }
+    show() {
+        this.busyIndicator.classList.remove(hiddenClassName);
+    }
+    hide() {
+        this.busyIndicator.classList.add(hiddenClassName);
+    }
+    toggle() {
+        this.busyIndicator.classList.toggle(hiddenClassName)
+    }
+};
+
 
 /***/ }),
 
