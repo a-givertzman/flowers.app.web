@@ -1,9 +1,11 @@
 .lds-spinner {
     color: official;
-    display: inline-block;
-    position: relative;
-    width: 80px;
-    height: 80px;
+    /* display: inline-block; */
+    background-color: rgba(30,30,30,0.8);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: auto auto;
   }
   .lds-spinner div {
     transform-origin: 40px 40px;
@@ -11,10 +13,12 @@
   }
   .lds-spinner div:after {
     content: " ";
-    display: block;
-    position: absolute;
-    top: 3px;
-    left: 37px;
+    /* display: block; */
+    position: absolute; 
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
     width: 6px;
     height: 18px;
     border-radius: 20%;
