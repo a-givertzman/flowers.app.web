@@ -547,15 +547,17 @@ let date = new Date();
 
 
 // click on menu icon
-showMenuBtn.addEventListener('click',(event) => {
-    let menu = document.querySelector('.menu ul');
-    let menuStyle = window.getComputedStyle(menu);
-    if (menuStyle.display == 'none') {
-        menu.style.display = 'block'
-    } else {
-        menu.style.display = 'none';
-    }
-});
+if (showMenuBtn) {
+    showMenuBtn.addEventListener('click',(event) => {
+        let menu = document.querySelector('.menu ul');
+        let menuStyle = window.getComputedStyle(menu);
+        if (menuStyle.display == 'none') {
+            menu.style.display = 'block'
+        } else {
+            menu.style.display = 'none';
+        }
+    });
+}
 
 window.addEventListener(                                            // ON LOAD WINDOW
     'load', (event) => {
