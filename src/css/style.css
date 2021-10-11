@@ -323,9 +323,9 @@ table tr{
 }
 table th.vert{
     text-align: center;
-    white-space: nowrap;
+    /* white-space: nowrap; */
     transform-origin: 50% 50%;
-    transform: rotate(90deg);
+    transform: rotate(-90deg);
 }
 table th.vert:before {
     content:'';
