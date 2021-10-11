@@ -136,6 +136,7 @@ window.addEventListener(                                            // ON LOAD W
                     // если изменился id закупки
                     // то добавляем в таблицу заголовок этой закупки
                     if (purchase_id != rowData['purchase/id']) {
+                        purchase_id = rowData['purchase/id'];
                         console.log('next purchase:', rowData);
                         var newPurchase = renderPurchase(rowData);
                         table.append(newPurchase.thead);
