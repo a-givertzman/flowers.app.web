@@ -324,6 +324,14 @@ table tr{
 table th{
     padding: 1px 2px;
 }
+table th span 
+{
+  -ms-writing-mode: tb-rl;
+  -webkit-writing-mode: vertical-rl;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  white-space: nowrap;
+}
 table th,
 table td{
     overflow: hidden;

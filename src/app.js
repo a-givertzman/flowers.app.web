@@ -191,15 +191,15 @@ function renderPurchase(row) {
                 <th>PrID</th>
                 <th>Группа</th>
                 <th>Нименование</th>
-                <th>Заказано</th>
-                <th>Получено</th>
+                <th><span>Заказано</span></th>
+                <th><span>Получено</span></th>
                 <th>Цена закупки</th>
                 <th>Цена</th>
-                <th>Транспортные расходы</th>
-                <th>Стоимость</th>
-                <th>Оплачено</th>
-                <th>Сумма к возврату</th>
-                <th>Возвращено</th>
+                <th><span>Транспортные расходы</span></th>
+                <th><span>Стоимость</span></th>
+                <th><span>Оплачено</span></th>
+                <th><span>Сумма к возврату</span></th>
+                <th><span>Возвращено</span></th>
             </tr>
         </thead>
         `;
