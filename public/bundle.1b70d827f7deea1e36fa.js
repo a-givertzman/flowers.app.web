@@ -647,7 +647,7 @@ function renderPurchase(row) {
     var theadHtml = `
         <thead>
             <tr class="purchase-row-header">
-                Закупка [${row['purchase/id']}] ${row['purchase/name']}
+                <th>Закупка [${row['purchase/id']}] ${row['purchase/name']}</th>
             </tr>
             <tr class="purchase-row">
                 <th class="id">PuMID</th>
