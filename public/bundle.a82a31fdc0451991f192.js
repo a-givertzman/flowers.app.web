@@ -660,11 +660,11 @@ function renderPurchase(row) {
                 <th class="product-order_quantity">PrOQ</th>
                 <th class="count">count</th>
                 <th class="vert distributed">distributed</th>
-                <th class="vert product-primary_price">product/primary_price</th>
-                <th class="vert product-primary_currency">product/primary_currency</th>
-                <th class="vert purchase_content-sale_price">purchase_content/sale_price</th>
-                <th class="vert purchase_content-sale_currency">purchase_content/sale_currency</th>
-                <th class="vert purchase_content-shipping">purchase_content/shipping</th>
+                <th class="vert product-primary_price">Цена закупки</th>
+                <th class="vert product-primary_currency">Валюта закупки</th>
+                <th class="vert purchase_content-sale_price">Стоимость</th>
+                <th class="vert purchase_content-sale_currency">Валюта</th>
+                <th class="vert purchase_content-shipping">Транспортные расходы</th>
                 <th class="cost">cost</th>
                 <th class="paid">paid</th>
                 <th class="vert torefound">torefound</th>
