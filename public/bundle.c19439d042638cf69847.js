@@ -682,7 +682,7 @@ function renderPurchase(row) {
     var thead = document.createElement('thead');
     thead.innerHTML = theadHtml.trim();
     var tbody = document.createElement('tbody');
-    thead.innerHTML = tbodyHtml.trim();
+    tbody.innerHTML = tbodyHtml.trim();
     return {thead: thead, tbody: tbody};
 }
 
