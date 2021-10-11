@@ -661,9 +661,9 @@ function renderPurchase(row) {
                 <th class="count">count</th>
                 <th class="distributed"><span class="vert">distributed</span></th>
                 <th class="product-primary_price"><span class="vert">Цена закупки</span></th>
-                <th class="product-primary_currency"><span class="vert">Валюта закупки</span></th>
+                // <th class="product-primary_currency"><span class="vert">Валюта закупки</span></th>
                 <th class="purchase_content-sale_price"><span class="vert">Стоимость</span></th>
-                <th class="purchase_content-sale_currency"><span class="vert">Валюта</span></th>
+                // <th class="purchase_content-sale_currency"><span class="vert">Валюта</span></th>
                 <th class="purchase_content-shipping"><span class="vert">Транспортные расходы</span></th>
                 <th class="cost">cost</th>
                 <th class="paid">paid</th>
@@ -695,9 +695,15 @@ function renderRow(row) {
             <td class="product-order_quantity">${row['product/order_quantity']}</td>
             <td class="count">${row['count']}</td>
             <td class="distributed">${row['distributed']}</td>
-            <td class="product-primary_price">${row['product/primary_price']}</td>
-            <td class="product-primary_currency">${row['product/primary_currency']}</td>
-            <td class="purchase_content-sale_price">${row['purchase_content/sale_price']}</td>
+            <td class="product-primary_price">
+                ${row['product/primary_price']}
+                ${row['product/primary_currency']}
+            </td>
+            // <td class="product-primary_currency">${row['product/primary_currency']}</td>
+            <td class="purchase_content-sale_price">
+                ${row['purchase_content/sale_price']}
+                ${row['purchase_content/sale_currency']}
+            </td>
             <td class="purchase_content-sale_currency">${row['purchase_content/sale_currency']}</td>
             <td class="purchase_content-shipping">${row['purchase_content/shipping']}</td>
             <td class="cost">${row['cost']}</td>
