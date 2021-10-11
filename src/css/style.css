@@ -329,6 +329,7 @@ table th.vert{
 }
 table th.vert:before {
     content:'';
+    padding-top:101%;/* takes width as reference, + 10% for faking some extra padding */
     display:inline-block;
     vertical-align:middle;
 }
