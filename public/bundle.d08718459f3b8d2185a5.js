@@ -651,9 +651,6 @@ function renderPurchase(row) {
                 <th colspan="100">Закупка [${row['purchase/id']}] ${row['purchase/name']}</th>
             </tr>
             <tr class="purchase-row">
-                <th>PuMID</th>
-                <th>ClID</th>
-                <th>PuCID</th>
                 <th>PrID</th>
                 <th>PrGroup</th>
                 <th>PrName</th>
@@ -661,12 +658,12 @@ function renderPurchase(row) {
                 <th>count</th>
                 <th>distributed</th>
                 <th>Цена закупки</th>
-                <th>Стоимость</th>
+                <th>Цена</th>
                 <th>Транспортные расходы</th>
-                <th>cost</th>
-                <th>paid</th>
-                <th>torefound</th>
-                <th>refounded</th>
+                <th>Стоимость</th>
+                <th>Оплачено</th>
+                <th>Сумма к возврату</th>
+                <th>Возвращено</th>
             </tr>
         </thead>
         `;
@@ -684,9 +681,6 @@ function renderPurchase(row) {
 function renderRow(row) {
     var rowHtml = `
         <tr class="purchase-row">
-            <td>${row['id']}</td>
-            <td>${row['client/id']}</td>
-            <td>${row['purchase_content/id']}</td>
             <td>${row['product/id']}</td>
             <td>${row['product/group']}</td>
             <td>${row['product/name']}</td>
