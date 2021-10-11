@@ -120,7 +120,7 @@ window.addEventListener(                                            // ON LOAD W
             busyIndicator.show();
             getJoinData(
                 'purchase_member', 
-                ['id','purchase/id','client/id','client/group','client/name','client/phone','client/account','purchase_content/id','product/id','product/group','product/name','product/order_quantity','count','distributed','product/primary_price','product/primary_currency','purchase_content/sale_price','purchase_content/sale_currency','purchase_content/shipping','cost','paid','torefound','refounded'], 
+                ['id','purchase/id','purchase/name','client/id','client/group','client/name','client/phone','client/account','purchase_content/id','product/id','product/group','product/name','product/order_quantity','count','distributed','product/primary_price','product/primary_currency','purchase_content/sale_price','purchase_content/sale_currency','purchase_content/shipping','cost','paid','torefound','refounded'], 
                 'purchase/id', 'ASC', 
                 ['client/id'], selectedId, 
                 0
