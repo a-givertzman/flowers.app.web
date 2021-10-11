@@ -322,7 +322,13 @@ table tr{
     border-bottom: solid #5e5e5e  0.1px;
 }
 table th span.vert{
-    writing-mode: vertical-lr;
+    transform-origin: 0 50%;
+    transform: rotate(-90deg); 
+    white-space: nowrap; 
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
     /* text-align: center; */
     /* white-space: nowrap; */
     /* transform-origin: 50% 50%; */
