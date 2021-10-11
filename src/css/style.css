@@ -312,14 +312,12 @@ header{
 
 /* PUTCHASE_TABLE */
 table{
-    width: 100%;
     table-layout: auto;
+    width: 100%;
     border: none; 
     border-collapse: collapse;
 }
 table tr{
-    width: 100%;
-    display: inline-block;
     border-top: solid #5e5e5e  0.1px;
     border-bottom: solid #5e5e5e  0.1px;
 }

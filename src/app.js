@@ -128,13 +128,24 @@ window.addEventListener(                                            // ON LOAD W
 
                 console.log('responseData:', responseData);
                 var table = document.querySelector('table.purchase-items');
+                var tableBody = document.querySelector('table.purchase-items tbody');
+                var purchase_id = -1;
                 for (var key in responseData) {
                     var rowData = responseData[key];
                     
+                    // если изменился id закупки
+                    // то добавляем в таблицу заголовок этой закупки
+                    if (purchase_id != rowData['purchase/id']) {
+                        console.log('next purchase:', rowData);
+                        var newPurchase = renderPurchase(rowData);
+                        table.append(newPurchase.thead);
+                        table.append(newPurchase.tbody);
+                        tableBody = newPurchase.tbody;
+                    }
                     console.log('rowData:', rowData);
                     var row = renderRow(rowData);
                     console.log('row:', row);
-                    table.append(row);
+                    tableBody.append(row);
                 };
                 busyIndicator.hide();
             }).catch(e => {
@@ -169,16 +180,58 @@ window.addEventListener(                                            // ON LOAD W
         // setFormState(USER);
 });
 
+function renderPurchase(row) {
+    var theadHtml = `
+        <thead>
+            <tr class="purchase-row-header">
+                Закупка [${row['purchase/id']}] ${row['purchase/name']}
+            </tr>
+            <tr class="purchase-row">
+                <th class="id">PuMID</th>
+                <th class="client-id">ClID</th>
+                <!-- <th class="client-group">client/group</th> -->
+                <!-- <th class="client-name">client/name</th> -->
+                <!-- <th class="client-phone">client/phone</th> -->
+                <!-- <th class="client-account">client/account</th> -->
+                <th class="purchase_content-id">PuCID</th>
+                <th class="product-id">PrID</th>
+                <th class="product-group">PrGroup</th>
+                <th class="product-name">PrName</th>
+                <th class="product-order_quantity">PrOQ</th>
+                <th class="count">count</th>
+                <th class="distributed">distributed</th>
+                <th class="product-primary_price">product/primary_price</th>
+                <th class="product-primary_currency">product/primary_currency</th>
+                <th class="purchase_content-sale_price">purchase_content/sale_price</th>
+                <th class="purchase_content-sale_currency">purchase_content/sale_currency</th>
+                <th class="purchase_content-shipping">purchase_content/shipping</th>
+                <th class="cost">cost</th>
+                <th class="paid">paid</th>
+                <th class="torefound">torefound</th>
+                <th class="refounded">refounded</th>
+            </tr>
+        </thead>
+        `;
+    var tbodyHtml = `
+        <tbody>
+        </tbody>
+    `;
+    var thead = document.createElement('thead');
+    thead.innerHTML = theadHtml.trim();
+    var tbody = document.createElement('tbody');
+    thead.innerHTML = tbodyHtml.trim();
+    return {thead: thead, tbody: tbody};
+}
 
 function renderRow(row) {
     var rowHtml = `
         <tr class="purchase-row">
             <td class="id">${row['id']}</td>
             <td class="client-id">${row['client/id']}</td>
-            <td class="client-group">${row['client/group']}</td>
-            <td class="client-name">${row['client/name']}</td>
-            <td class="client-phone">${row['client/phone']}</td>
-            <td class="client-account">${row['client/account']}</td>
+            // <td class="client-group">${row['client/group']}</td>
+            // <td class="client-name">${row['client/name']}</td>
+            // <td class="client-phone">${row['client/phone']}</td>
+            // <td class="client-account">${row['client/account']}</td>
             <td class="purchase_content/id">${row['purchase_content/id']}</td>
             <td class="product-id">${row['product/id']}</td>
             <td class="product-group">${row['product/group']}</td>

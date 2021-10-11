@@ -46,7 +46,7 @@
             <div class="purchase-selector-top">
                 <div class="purchase-selector-title-box">
                     <div class="purchase-selector-title">
-                        Выбери закупку
+                        Найди себя
                     </div>
                     <div class="purchase-selector-search">
                         <select multiple="multiple" class="search-purchase-select" name="purchase-selector">
@@ -55,60 +55,64 @@
                 </div>
             </div>
             <div class="purchase-item">
-                <span> Закупки </span>
+                <span> Список закупок </span>
             </div>
             <div class="purchase-title">
                 <span> Закупка </span>
             </div>
             <table class="purchase-items">
-                <tr class="purchase-row">
-                    <th class="id">id</th>
-                    <th class="client-id">client/id</th>
-                    <th class="client-group">client/group</th>
-                    <th class="client-name">client/name</th>
-                    <th class="client-phone">client/phone</th>
-                    <th class="client-account">client/account</th>
-                    <th class="purchase_content/id">purchase_content/id</th>
-                    <th class="product-id">product/id</th>
-                    <th class="product-group">product/group</th>
-                    <th class="product-name">product/name</th>
-                    <th class="product-order_quantity">product/order_quantity</th>
-                    <th class="count">count</th>
-                    <th class="distributed">distributed</th>
-                    <th class="product-primary_price">product/primary_price</th>
-                    <th class="product-primary_currency">product/primary_currency</th>
-                    <th class="purchase_content-sale_price">purchase_content/sale_price</th>
-                    <th class="purchase_content-sale_currency">purchase_content/sale_currency</th>
-                    <th class="purchase_content-shipping">purchase_content/shipping</th>
-                    <th class="cost">cost</th>
-                    <th class="paid">paid</th>
-                    <th class="torefound">torefound</th>
-                    <th class="refounded">refounded</th>
-                </tr>
-                <tr class="purchase-row">
-                    <td class="id">id</td>
-                    <td class="client-id">client/id</td>
-                    <td class="client-group">client/group</td>
-                    <td class="client-name">client/name</td>
-                    <td class="client-phone">client/phone</td>
-                    <td class="client-account">client/account</td>
-                    <td class="purchase_content/id">purchase_content/id</td>
-                    <td class="product-id">product/id</td>
-                    <td class="product-group">product/group</td>
-                    <td class="product-name">product/name</td>
-                    <td class="product-order_quantity">product/order_quantity</td>
-                    <td class="count">count</td>
-                    <td class="distributed">distributed</td>
-                    <td class="product-primary_price">product/primary_price</td>
-                    <td class="product-primary_currency">product/primary_currency</td>
-                    <td class="purchase_content-sale_price">purchase_content/sale_price</td>
-                    <td class="purchase_content-sale_currency">purchase_content/sale_currency</td>
-                    <td class="purchase_content-shipping">purchase_content/shipping</td>
-                    <td class="cost">cost</td>
-                    <td class="paid">paid</td>
-                    <td class="torefound">torefound</td>
-                    <td class="refounded">refounded</td>
-                </tr>
+                <thead>
+                    <tr class="purchase-row">
+                        <th class="id">PuMID</th>
+                        <th class="client-id">ClID</th>
+                        <!-- <th class="client-group">client/group</th> -->
+                        <!-- <th class="client-name">client/name</th> -->
+                        <!-- <th class="client-phone">client/phone</th> -->
+                        <!-- <th class="client-account">client/account</th> -->
+                        <th class="purchase_content-id">PuCID</th>
+                        <th class="product-id">PrID</th>
+                        <th class="product-group">PrGroup</th>
+                        <th class="product-name">PrName</th>
+                        <th class="product-order_quantity">PrOQ</th>
+                        <th class="count">count</th>
+                        <th class="distributed">distributed</th>
+                        <th class="product-primary_price">product/primary_price</th>
+                        <th class="product-primary_currency">product/primary_currency</th>
+                        <th class="purchase_content-sale_price">purchase_content/sale_price</th>
+                        <th class="purchase_content-sale_currency">purchase_content/sale_currency</th>
+                        <th class="purchase_content-shipping">purchase_content/shipping</th>
+                        <th class="cost">cost</th>
+                        <th class="paid">paid</th>
+                        <th class="torefound">torefound</th>
+                        <th class="refounded">refounded</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="purchase-row">
+                        <td class="ID">id</td>
+                        <td class="CID">client/id</td>
+                        <!-- <td class="client-group">client/group</td> -->
+                        <!-- <td class="client-name">client/name</td> -->
+                        <!-- <td class="client-phone">client/phone</td> -->
+                        <!-- <td class="client-account">client/account</td> -->
+                        <td class="purchase_content/id">purchase_content/id</td>
+                        <td class="product-id">product/id</td>
+                        <td class="product-group">product/group</td>
+                        <td class="product-name">product/name</td>
+                        <td class="product-order_quantity">product/order_quantity</td>
+                        <td class="count">count</td>
+                        <td class="distributed">distributed</td>
+                        <td class="product-primary_price">product/primary_price</td>
+                        <td class="product-primary_currency">product/primary_currency</td>
+                        <td class="purchase_content-sale_price">purchase_content/sale_price</td>
+                        <td class="purchase_content-sale_currency">purchase_content/sale_currency</td>
+                        <td class="purchase_content-shipping">purchase_content/shipping</td>
+                        <td class="cost">cost</td>
+                        <td class="paid">paid</td>
+                        <td class="torefound">torefound</td>
+                        <td class="refounded">refounded</td>
+                    </tr>
+                </tbody>
             </table>
         </div>
     </section>
