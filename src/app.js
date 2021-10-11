@@ -196,16 +196,16 @@ function renderPurchase(row) {
                 <th class="product-name">PrName</th>
                 <th class="product-order_quantity">PrOQ</th>
                 <th class="count">count</th>
-                <th class="distributed">distributed</th>
-                <th class="product-primary_price">product/primary_price</th>
-                <th class="product-primary_currency">product/primary_currency</th>
-                <th class="purchase_content-sale_price">purchase_content/sale_price</th>
-                <th class="purchase_content-sale_currency">purchase_content/sale_currency</th>
-                <th class="purchase_content-shipping">purchase_content/shipping</th>
+                <th class="vert distributed">distributed</th>
+                <th class="vert product-primary_price">product/primary_price</th>
+                <th class="vert product-primary_currency">product/primary_currency</th>
+                <th class="vert purchase_content-sale_price">purchase_content/sale_price</th>
+                <th class="vert purchase_content-sale_currency">purchase_content/sale_currency</th>
+                <th class="vert purchase_content-shipping">purchase_content/shipping</th>
                 <th class="cost">cost</th>
                 <th class="paid">paid</th>
-                <th class="torefound">torefound</th>
-                <th class="refounded">refounded</th>
+                <th class="vert torefound">torefound</th>
+                <th class="vert refounded">refounded</th>
             </tr>
         </thead>
         `;
