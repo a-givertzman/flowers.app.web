@@ -322,6 +322,7 @@ table tr{
     border-bottom: solid #5e5e5e  0.1px;
 }
 .purchase-row-header{
+    margin-top: 30px;
     background-color: var(--akcent-color);
 }
 table th{
