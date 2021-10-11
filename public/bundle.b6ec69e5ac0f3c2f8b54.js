@@ -653,10 +653,6 @@ function renderPurchase(row) {
             <tr class="purchase-row">
                 <th class="id">PuMID</th>
                 <th class="client-id">ClID</th>
-                <!-- <th class="client-group">client/group</th> -->
-                <!-- <th class="client-name">client/name</th> -->
-                <!-- <th class="client-phone">client/phone</th> -->
-                <!-- <th class="client-account">client/account</th> -->
                 <th class="purchase_content-id">PuCID</th>
                 <th class="product-id">PrID</th>
                 <th class="product-group">PrGroup</th>
@@ -692,10 +688,6 @@ function renderRow(row) {
         <tr class="purchase-row">
             <td class="id">${row['id']}</td>
             <td class="client-id">${row['client/id']}</td>
-            // <td class="client-group">${row['client/group']}</td>
-            // <td class="client-name">${row['client/name']}</td>
-            // <td class="client-phone">${row['client/phone']}</td>
-            // <td class="client-account">${row['client/account']}</td>
             <td class="purchase_content/id">${row['purchase_content/id']}</td>
             <td class="product-id">${row['product/id']}</td>
             <td class="product-group">${row['product/group']}</td>
