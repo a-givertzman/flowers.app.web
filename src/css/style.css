@@ -321,9 +321,14 @@ table tr{
     border-top: solid #5e5e5e  0.1px;
     border-bottom: solid #5e5e5e  0.1px;
 }
+table th{
+    padding: 1px 2px;
+}
 table th,
 table td{
     overflow: hidden;
+    text-align: center;
+    vertical-align: middle;
     border-left: solid #5e5e5e  0.1px;
 }
 table th:first-child { border-left: solid #5e5e5e  0.1px; }
