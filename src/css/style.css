@@ -323,6 +323,7 @@ table tr{
 }
 table th{
     padding: 1px 2px;
+    width: 3%;
 }
 table th span 
 {
@@ -330,7 +331,6 @@ table th span
   -webkit-writing-mode: vertical-rl;
   writing-mode: vertical-rl;
   transform: rotate(180deg);
-  white-space: nowrap;
 }
 table th,
 table td{
