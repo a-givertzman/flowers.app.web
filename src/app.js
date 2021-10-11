@@ -194,14 +194,14 @@ function renderPurchase(row) {
                 <th class="product-id">PrID</th>
                 <th class="product-group">PrGroup</th>
                 <th class="product-name">PrName</th>
-                <th class="product-order_quantity">PrOQ</th>
+                <th class="product-order_quantity"><span class="vert">PrOQ</span></th>
                 <th class="count">count</th>
-                <th class="vert distributed"><span>distributed</span></th>
-                <th class="vert product-primary_price"><span>Цена закупки</span></th>
-                <th class="vert product-primary_currency"><span>Валюта закупки</span></th>
-                <th class="vert purchase_content-sale_price"><span>Стоимость</span></th>
-                <th class="vert purchase_content-sale_currency"><span>Валюта</span></th>
-                <th class="vert purchase_content-shipping"><span>Транспортные расходы</span></th>
+                <th class="distributed"><span class="vert">distributed</span></th>
+                <th class="product-primary_price"><span class="vert">Цена закупки</span></th>
+                <th class="product-primary_currency"><span class="vert">Валюта закупки</span></th>
+                <th class="purchase_content-sale_price"><span class="vert">Стоимость</span></th>
+                <th class="purchase_content-sale_currency"><span class="vert">Валюта</span></th>
+                <th class="purchase_content-shipping"><span class="vert">Транспортные расходы</span></th>
                 <th class="cost">cost</th>
                 <th class="paid">paid</th>
                 <th class="vert torefound">torefound</th>
