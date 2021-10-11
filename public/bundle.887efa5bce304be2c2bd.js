@@ -652,11 +652,10 @@ function renderPurchase(row) {
             </tr>
             <tr class="purchase-row">
                 <th>PrID</th>
-                <th>PrGroup</th>
-                <th>PrName</th>
-                <th>PrOQ</th>
-                <th>count</th>
-                <th>distributed</th>
+                <th>Группа</th>
+                <th>Нименование</th>
+                <th>Заказано</th>
+                <th>Получено</th>
                 <th>Цена закупки</th>
                 <th>Цена</th>
                 <th>Транспортные расходы</th>
@@ -684,7 +683,6 @@ function renderRow(row) {
             <td>${row['product/id']}</td>
             <td>${row['product/group']}</td>
             <td>${row['product/name']}</td>
-            <td>${row['product/order_quantity']}</td>
             <td>${row['count']}</td>
             <td>${row['distributed']}</td>
             <td>
