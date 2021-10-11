@@ -1,7 +1,7 @@
 @import './normalize.css';
 @import './fonts.css';
 @import '@plugins/select2-4.1.0-rc.0/dist/css/select2.min.css';
-@import './busy.css';
+@import '@plugins/busy-indicator/busy.css';
 
 :root{
     --purchase-selector-item-shadow-color: rgba(91, 89, 89, 0.14);
