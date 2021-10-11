@@ -188,24 +188,22 @@ function renderPurchase(row) {
                 <th colspan="100">Закупка [${row['purchase/id']}] ${row['purchase/name']}</th>
             </tr>
             <tr class="purchase-row">
-                <th class="id">PuMID</th>
-                <th class="client-id">ClID</th>
-                <th class="purchase_content-id">PuCID</th>
-                <th class="product-id">PrID</th>
-                <th class="product-group">PrGroup</th>
-                <th class="product-name">PrName</th>
-                <th class="product-order_quantity">PrOQ</th>
-                <th class="count">count</th>
-                <th class="distributed">distributed</th>
-                <th class="product-primary_price">Цена закупки</th>
-                // <th class="product-primary_currency">Валюта закупки</th>
-                <th class="purchase_content-sale_price">Стоимость</th>
-                // <th class="purchase_content-sale_currency">Валюта</th>
-                <th class="purchase_content-shipping">Транспортные расходы</th>
-                <th class="cost">cost</th>
-                <th class="paid">paid</th>
-                <th class="vert torefound">torefound</th>
-                <th class="vert refounded">refounded</th>
+                <th>PuMID</th>
+                <th>ClID</th>
+                <th>PuCID</th>
+                <th>PrID</th>
+                <th>PrGroup</th>
+                <th>PrName</th>
+                <th>PrOQ</th>
+                <th>count</th>
+                <th>distributed</th>
+                <th>Цена закупки</th>
+                <th>Стоимость</th>
+                <th>Транспортные расходы</th>
+                <th>cost</th>
+                <th>paid</th>
+                <th>torefound</th>
+                <th>refounded</th>
             </tr>
         </thead>
         `;
@@ -223,27 +221,25 @@ function renderPurchase(row) {
 function renderRow(row) {
     var rowHtml = `
         <tr class="purchase-row">
-            <td class="id">${row['id']}</td>
-            <td class="client-id">${row['client/id']}</td>
-            <td class="purchase_content/id">${row['purchase_content/id']}</td>
-            <td class="product-id">${row['product/id']}</td>
-            <td class="product-group">${row['product/group']}</td>
-            <td class="product-name">${row['product/name']}</td>
-            <td class="product-order_quantity">${row['product/order_quantity']}</td>
-            <td class="count">${row['count']}</td>
-            <td class="distributed">${row['distributed']}</td>
-            <td class="product-primary_price">
+            <td>${row['id']}</td>
+            <td>${row['client/id']}</td>
+            <td>${row['purchase_content/id']}</td>
+            <td>${row['product/id']}</td>
+            <td>${row['product/group']}</td>
+            <td>${row['product/name']}</td>
+            <td>${row['product/order_quantity']}</td>
+            <td>${row['count']}</td>
+            <td>${row['distributed']}</td>
+            <td>
                 ${row['product/primary_price']}
                 ${row['product/primary_currency']}
             </td>
-            // <td class="product-primary_currency">${row['product/primary_currency']}</td>
-            <td class="purchase_content-sale_price">
+            <td>
                 ${row['purchase_content/sale_price']}
                 ${row['purchase_content/sale_currency']}
             </td>
-            <td class="purchase_content-sale_currency">${row['purchase_content/sale_currency']}</td>
-            <td class="purchase_content-shipping">${row['purchase_content/shipping']}</td>
-            <td class="cost">${row['cost']}</td>
+            <td>${row['purchase_content/shipping']}</td>
+            <td>${row['cost']}</td>
             <td class="paid">${row['paid']}</td>
             <td class="torefound">${row['torefound']}</td>
             <td class="refounded">${row['refounded']}</td>
