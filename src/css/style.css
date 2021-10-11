@@ -322,17 +322,18 @@ table tr{
     border-bottom: solid #5e5e5e  0.1px;
 }
 table th.vert{
-    text-align: center;
+    writing-mode: vertical-lr;
+    /* text-align: center; */
     /* white-space: nowrap; */
-    transform-origin: 50% 50%;
-    transform: rotate(-90deg);
+    /* transform-origin: 50% 50%; */
+    /* transform: rotate(-90deg); */
 }
-table th.vert:before {
+/* table th.vert:before {
     content:'';
-    padding-top:101%;/* takes width as reference, + 10% for faking some extra padding */
+    padding-top:101%;
     display:inline-block;
     vertical-align:middle;
-}
+} */
 table th,
 table td{
     overflow: hidden;
