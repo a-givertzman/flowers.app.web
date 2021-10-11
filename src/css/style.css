@@ -321,7 +321,7 @@ table tr{
     border-top: solid #5e5e5e  0.1px;
     border-bottom: solid #5e5e5e  0.1px;
 }
-table th.vert{
+table th span.vert{
     writing-mode: vertical-lr;
     /* text-align: center; */
     /* white-space: nowrap; */
