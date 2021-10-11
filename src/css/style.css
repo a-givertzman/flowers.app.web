@@ -321,29 +321,6 @@ table tr{
     border-top: solid #5e5e5e  0.1px;
     border-bottom: solid #5e5e5e  0.1px;
 }
-table th{
-    position: relative;
-    padding: 5px;
-  }
-table th span.vert{
-    transform-origin: 0 50%;
-    transform: rotate(-90deg); 
-    white-space: nowrap; 
-    display: block;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    /* text-align: center; */
-    /* white-space: nowrap; */
-    /* transform-origin: 50% 50%; */
-    /* transform: rotate(-90deg); */
-}
-/* table th.vert:before {
-    content:'';
-    padding-top:101%;
-    display:inline-block;
-    vertical-align:middle;
-} */
 table th,
 table td{
     overflow: hidden;
