@@ -6,6 +6,7 @@
 :root{
     --purchase-selector-item-shadow-color: rgba(91, 89, 89, 0.14);
     --akcent-color: #ffc222;
+    --akcent1-color: #61B5FF;
     --granite-gray: #5e5e5e;
     --nero-color: #1b1b1b;
     --night-rider-color: #323232;
@@ -324,6 +325,10 @@ table tr{
 .purchase-row-header{
     margin-top: 30px;
     background-color: var(--akcent-color);
+}
+.transaction-row-header{
+    margin-top: 30px;
+    background-color: var(--akcent1-color);
 }
 table th{
     padding: 1px 2px;

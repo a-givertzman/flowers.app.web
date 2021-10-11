@@ -1,5 +1,7 @@
 import { clearCookie, getCookie, setCookie } from './cookie';
 import { getData, getJoinData } from './mysql';
+import { renderPurchaseHeader, renderPurchaseRow } from './renderClientReport';
+import { renderTransactionHeader, renderTransactionRow } from './renderClientReport';
 import '@plugins/slick-slider/slick.css';
 
 import {BusyIndicator} from '@plugins/busy-indicator/busy.js'
@@ -11,15 +13,6 @@ import './css/media.css';
 // import slider_1_background_img from '@img/slider-background.png';
 // import header_logo_img from '@img/header-logo.png';
 import { User } from './user';
-
-// JQUERY FORM STYLER
-// (function($) {
-//     $(function() {
-//         $('select').styler({
-//             selectSmartPositioning: true,
-//         });
-//     });
-// })(jQuery);
 
 var data = null;
 var busyIndicator;
@@ -117,9 +110,12 @@ window.addEventListener(                                            // ON LOAD W
             busyIndicator.hide();
         });
 
-        // загружаем закупки выбранного клиента
+        // загружаем информацию по выбранному клиенту
         $('.search-purchase-select').on('select2:select', e => {
+            console.log('selection id:', e.params.data);
             var selectedId = e.params.data.id;
+
+            // закупки клиента
             busyIndicator.show();
             getJoinData(
                 'purchase_member', 
@@ -129,7 +125,7 @@ window.addEventListener(                                            // ON LOAD W
                 0
             ).then(responseData => {
 
-                console.log('responseData:', responseData);
+                // console.log('responseData:', responseData);
                 var table = document.querySelector('table.purchase-items');
                 var tableBody = document.querySelector('table.purchase-items tbody');
                 var purchase_id = -1;
@@ -140,27 +136,53 @@ window.addEventListener(                                            // ON LOAD W
                     // то добавляем в таблицу заголовок этой закупки
                     if (purchase_id != rowData['purchase/id']) {
                         purchase_id = rowData['purchase/id'];
-                        console.log('next purchase:', rowData);
-                        var newPurchase = renderPurchase(rowData);
+                        // console.log('next purchase:', rowData);
+                        var newPurchase = renderPurchaseHeader(rowData);
                         table.append(newPurchase.thead);
                         table.append(newPurchase.tbody);
                         tableBody = newPurchase.tbody;
                     }
+                    // console.log('rowData:', rowData);
+                    var row = renderPurchaseRow(rowData);
+                    // console.log('row:', row);
+                    tableBody.append(row);
+                };
+
+            }).catch(e => {
+                busyIndicator.hide();
+            });
+            // транзакции клиента
+            busyIndicator.show();
+            getJoinData(
+                'transaction',
+                ['id','date','account_owner','value','purchase_member/id','purchase_member/name','description','client/account'], 
+                'id', 'ASC', 
+                ['client/id'], selectedId, 
+                0
+            ).then(responseData => {
+
+                console.log('responseData:', responseData);
+                var table = document.querySelector('table.transaction-items');
+                var newTransaction = renderTransactionHeader(rowData);
+                table.append(newTransaction.thead);
+                table.append(newTransaction.tbody);
+                var tableBody = newTransaction.tbody;
+                for (var key in responseData) {
+                    var rowData = responseData[key];
                     console.log('rowData:', rowData);
-                    var row = renderRow(rowData);
+                    var row = renderTransactionRow(rowData);
                     console.log('row:', row);
                     tableBody.append(row);
                 };
-                busyIndicator.hide();
+
             }).catch(e => {
                 busyIndicator.hide();
             });
 
-            getData('purchase_member', ['*'], 'id', 'ASC', ['client/id'], selectedId, 0).then(responseData => {
+            // getData('purchase_member', ['*'], 'id', 'ASC', ['client/id'], selectedId, 0).then(responseData => {
                 
-                console.log('responseData:', responseData);
-            });
-            console.log('selection id:', e.params.data);
+            //     console.log('responseData:', responseData);
+            // });
         });
         
         $('.search-purchase-select').on('select2:unselect', e => {
