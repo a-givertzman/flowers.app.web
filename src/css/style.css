@@ -321,6 +321,10 @@ table tr{
     border-top: solid #5e5e5e  0.1px;
     border-bottom: solid #5e5e5e  0.1px;
 }
+table th{
+    position: relative;
+    padding: 5px;
+  }
 table th span.vert{
     transform-origin: 0 50%;
     transform: rotate(-90deg); 
