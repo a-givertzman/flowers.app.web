@@ -117,45 +117,45 @@ window.addEventListener(                                            // ON LOAD W
 
             // закупки клиента
             busyIndicator.show();
-            // getJoinData(
-            //     'purchase_member', 
-            //     ['id','purchase/id','purchase/name','client/id','client/group','client/name','client/phone','client/account','purchase_content/id','product/id','product/group','product/name','product/order_quantity','count','distributed','product/primary_price','product/primary_currency','purchase_content/sale_price','purchase_content/sale_currency','purchase_content/shipping','cost','paid','torefound','refounded'], 
-            //     'purchase/id', 'ASC', 
-            //     ['client/id'], selectedId, 
-            //     0
-            // ).then(responseData => {
+            getJoinData(
+                'purchase_member', 
+                ['id','purchase/id','purchase/name','client/id','client/group','client/name','client/phone','client/account','purchase_content/id','product/id','product/group','product/name','product/order_quantity','count','distributed','product/primary_price','product/primary_currency','purchase_content/sale_price','purchase_content/sale_currency','purchase_content/shipping','cost','paid','torefound','refounded'], 
+                'purchase/id', 'ASC', 
+                ['client/id'], selectedId, 
+                0
+            ).then(responseData => {
 
-            //     // console.log('responseData:', responseData);
-            //     var table = document.querySelector('table.purchase-items');
-            //     var tableBody = document.querySelector('table.purchase-items tbody');
-            //     var purchase_id = -1;
-            //     for (var key in responseData) {
-            //         var rowData = responseData[key];
+                // console.log('responseData:', responseData);
+                var table = document.querySelector('table.purchase-items');
+                var tableBody = document.querySelector('table.purchase-items tbody');
+                var purchase_id = -1;
+                for (var key in responseData) {
+                    var rowData = responseData[key];
                     
-            //         // если изменился id закупки
-            //         // то добавляем в таблицу заголовок этой закупки
-            //         if (purchase_id != rowData['purchase/id']) {
-            //             purchase_id = rowData['purchase/id'];
-            //             // console.log('next purchase:', rowData);
-            //             var newPurchase = renderPurchaseHeader(rowData);
-            //             table.append(newPurchase.thead);
-            //             table.append(newPurchase.tbody);
-            //             tableBody = newPurchase.tbody;
-            //         }
-            //         // console.log('rowData:', rowData);
-            //         var row = renderPurchaseRow(rowData);
-            //         // console.log('row:', row);
-            //         tableBody.append(row);
-            //     };
+                    // если изменился id закупки
+                    // то добавляем в таблицу заголовок этой закупки
+                    if (purchase_id != rowData['purchase/id']) {
+                        purchase_id = rowData['purchase/id'];
+                        // console.log('next purchase:', rowData);
+                        var newPurchase = renderPurchaseHeader(rowData);
+                        table.append(newPurchase.thead);
+                        table.append(newPurchase.tbody);
+                        tableBody = newPurchase.tbody;
+                    }
+                    // console.log('rowData:', rowData);
+                    var row = renderPurchaseRow(rowData);
+                    // console.log('row:', row);
+                    tableBody.append(row);
+                };
 
-            // }).catch(e => {
-            //     busyIndicator.hide();
-            // });
+            }).catch(e => {
+                busyIndicator.hide();
+            });
             // транзакции клиента
             busyIndicator.show();
             getJoinData(
                 'transaction',
-                ['id','date','account_owner','value','purchase_member/id','purchase_member/name','description','client/account'], 
+                ['id','date','account_owner','value','purchase_member/id','product/id','product/name','description','client/account'], 
                 'id', 'ASC', 
                 ['client/id'], selectedId, 
                 0
