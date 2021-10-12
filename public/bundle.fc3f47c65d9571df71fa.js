@@ -769,6 +769,7 @@ window.addEventListener(                                            // ON LOAD W
                     tableBody.append(row);
                 };
 
+                busyIndicator.hide();
             }).catch(e => {
                 busyIndicator.hide();
             });
