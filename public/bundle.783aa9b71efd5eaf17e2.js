@@ -783,6 +783,8 @@ window.addEventListener(                                            // ON LOAD W
         $('.search-purchase-select').on('select2:unselect', e => {
             var table = document.querySelector('table.purchase-items');
             table.innerHTML = '';
+            table = document.querySelector('table.transaction-items');
+            table.innerHTML = '';
         });
 
         USER.name = getCookie('name');
