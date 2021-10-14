@@ -27,8 +27,7 @@ export async function getData(
     keys = null, 
     orderBy = 'id', 
     order = 'ASC', 
-    searchField = [], 
-    searchValue = '%',
+    where = [], 
     limit,
     url = '/getJoinData.php'
   ) {
@@ -39,8 +38,7 @@ export async function getData(
         keys,
         orderBy,
         order,
-        searchField,
-        searchValue,
+        where,
         limit,
         url  
     );
@@ -52,8 +50,7 @@ export async function getData(
     keys = null, 
     orderBy = 'id', 
     order = 'ASC', 
-    searchField = [], 
-    searchValue = '%',
+    where = [], 
     limit,
     url
   ) {
@@ -63,8 +60,7 @@ export async function getData(
     body.append( "keys", JSON.stringify(keys) );
     body.append( "orderBy", JSON.stringify(orderBy) );
     body.append( "order", order );
-    body.append( "searchField", JSON.stringify(searchField) );
-    body.append( "searchValue", JSON.stringify(searchValue) );
+    body.append( "where", JSON.stringify(where) );
     body.append( "limit", limit );
     console.log('body:', body);
     const options = {

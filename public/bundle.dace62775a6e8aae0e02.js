@@ -264,8 +264,7 @@ async function getData(
     keys = null, 
     orderBy = 'id', 
     order = 'ASC', 
-    searchField = [], 
-    searchValue = '%',
+    where = [], 
     limit,
     url = '/getJoinData.php'
   ) {
@@ -276,8 +275,7 @@ async function getData(
         keys,
         orderBy,
         order,
-        searchField,
-        searchValue,
+        where,
         limit,
         url  
     );
@@ -289,8 +287,7 @@ async function getData(
     keys = null, 
     orderBy = 'id', 
     order = 'ASC', 
-    searchField = [], 
-    searchValue = '%',
+    where = [], 
     limit,
     url
   ) {
@@ -300,8 +297,7 @@ async function getData(
     body.append( "keys", JSON.stringify(keys) );
     body.append( "orderBy", JSON.stringify(orderBy) );
     body.append( "order", order );
-    body.append( "searchField", JSON.stringify(searchField) );
-    body.append( "searchValue", JSON.stringify(searchValue) );
+    body.append( "where", JSON.stringify(where) );
     body.append( "limit", limit );
     console.log('body:', body);
     const options = {
@@ -691,7 +687,7 @@ window.addEventListener(                                            // ON LOAD W
         busyIndicator = new BusyIndicator('.busy-indicator', 'busy-indicator-hide')
         // загружаем список клиентов
         busyIndicator.show();
-        getData('client', ['*'], 'id', 'ASC', [], '%', 0).then(responseData => {
+        getData('client', ['*'], 'id', 'ASC', [],  0).then(responseData => {
             data = responseData;
             for(var key in data) {
                 let item = data[key];
@@ -711,11 +707,12 @@ window.addEventListener(                                            // ON LOAD W
 
             // закупки клиента
             busyIndicator.show();
+            var where = [{operator: 'where', field: 'client/id', cond: '=', value: selectedId}];
             getJoinData(
                 'purchase_member', 
                 ['id','purchase/id','purchase/name','client/id','client/group','client/name','client/phone','client/account','purchase_content/id','product/id','product/group','product/name','product/order_quantity','count','distributed','product/primary_price','product/primary_currency','purchase_content/sale_price','purchase_content/sale_currency','purchase_content/shipping','cost','paid','torefound','refounded'], 
                 'purchase/id', 'ASC', 
-                ['client/id'], selectedId, 
+                where, 
                 0
             ).then(responseData => {
 
@@ -747,11 +744,12 @@ window.addEventListener(                                            // ON LOAD W
             });
             // транзакции клиента
             busyIndicator.show();
-            getJoinData(
-                'transaction',
-                ['id','date','account_owner','value','purchase_member/id','product/id','product/name','description','client/account'], 
-                'id', 'ASC', 
-                ['client/id'], selectedId, 
+            var where = [{operator: 'where', field: 'client/id', cond: '=', value: selectedId}];
+            getView(
+                'clientTransactions',
+                ['*'], 
+                'date', 'ASC', 
+                where, 
                 0
             ).then(responseData => {
 
