@@ -20,7 +20,8 @@ export async function getData(
   }
 
 export async function getView(
-    tableName, 
+    tableName,
+    params = '',
     keys = null, 
     orderBy = 'id', 
     order = 'ASC', 
@@ -31,6 +32,7 @@ export async function getView(
     console.log('[mysql.getView]');
     return apiRequest(
         tableName,
+        params,
         keys,
         orderBy,
         order,
@@ -66,6 +68,7 @@ export async function getView(
 
   export async function apiRequest(
     tableName, 
+    params = '',
     keys = null, 
     orderBy = 'id', 
     order = 'ASC', 
@@ -76,6 +79,7 @@ export async function getView(
     console.log('[mysql.apiRequest]');
     var body = new FormData();
     body.append( "tableName", JSON.stringify(tableName) );
+    body.append( "params", JSON.stringify(params) );
     body.append( "keys", JSON.stringify(keys) );
     body.append( "orderBy", JSON.stringify(orderBy) );
     body.append( "order", order );
