@@ -247,6 +247,7 @@ async function getData(
     console.log('[mysql.getData]');
     return apiRequest(
         tableName,
+        '',
         keys,
         orderBy,
         order,
@@ -293,6 +294,7 @@ async function getView(
 
     return apiRequest(
         tableName,
+        '',
         keys,
         orderBy,
         order,
@@ -311,7 +313,7 @@ async function getView(
     order = 'ASC', 
     where = [], 
     limit,
-    url
+    url,
   ) {
     console.log('[mysql.apiRequest]');
     var body = new FormData();

@@ -10,6 +10,7 @@ export async function getData(
     console.log('[mysql.getData]');
     return apiRequest(
         tableName,
+        '',
         keys,
         orderBy,
         order,
@@ -56,6 +57,7 @@ export async function getView(
 
     return apiRequest(
         tableName,
+        '',
         keys,
         orderBy,
         order,
@@ -74,7 +76,7 @@ export async function getView(
     order = 'ASC', 
     where = [], 
     limit,
-    url
+    url,
   ) {
     console.log('[mysql.apiRequest]');
     var body = new FormData();
