@@ -118,9 +118,10 @@ window.addEventListener(                                            // ON LOAD W
             // закупки клиента
             busyIndicator.show();
             var where = [{operator: 'where', field: 'client/id', cond: '=', value: selectedId}];
-            getJoinData(
-                'purchase_member', 
-                ['id','purchase/id','purchase/name','client/id','client/group','client/name','client/phone','client/account','purchase_content/id','product/id','product/group','product/name','product/order_quantity','count','distributed','product/primary_price','product/primary_currency','purchase_content/sale_price','purchase_content/sale_currency','purchase_content/shipping','cost','paid','torefound','refounded'], 
+            getView(
+                'purchaseMemberView', 
+                ['*'],
+                // ['id','purchase/id','purchase/name','client/id','client/group','client/name','client/phone','client/account','purchase_content/id','product/id','product/group','product/name','product/order_quantity','count','distributed','product/primary_price','product/primary_currency','purchase_content/sale_price','purchase_content/sale_currency','purchase_content/shipping','cost','paid','torefound','refounded'], 
                 'purchase/id', 'ASC', 
                 where, 
                 0
