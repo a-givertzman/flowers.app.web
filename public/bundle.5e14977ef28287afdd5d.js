@@ -247,7 +247,7 @@ async function getData(
     console.log('[mysql.getData]');
     return apiRequest(
         tableName,
-        '',
+        '0',
         keys,
         orderBy,
         order,
@@ -258,8 +258,8 @@ async function getData(
   }
 
 async function getView(
-    tableName,
-    params = '',
+    viewName,
+    params = '0',
     keys = null, 
     orderBy = 'id', 
     order = 'ASC', 
@@ -269,7 +269,7 @@ async function getView(
   ) {
     console.log('[mysql.getView]');
     return apiRequest(
-        tableName,
+        viewName,
         params,
         keys,
         orderBy,
@@ -294,7 +294,7 @@ async function getView(
 
     return apiRequest(
         tableName,
-        '',
+        '0',
         keys,
         orderBy,
         order,
@@ -307,7 +307,7 @@ async function getView(
 
   async function apiRequest(
     tableName, 
-    params = '',
+    params = '0',
     keys = null, 
     orderBy = 'id', 
     order = 'ASC', 

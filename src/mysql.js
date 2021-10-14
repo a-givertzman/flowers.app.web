@@ -10,7 +10,7 @@ export async function getData(
     console.log('[mysql.getData]');
     return apiRequest(
         tableName,
-        '',
+        '0',
         keys,
         orderBy,
         order,
@@ -21,8 +21,8 @@ export async function getData(
   }
 
 export async function getView(
-    tableName,
-    params = '',
+    viewName,
+    params = '0',
     keys = null, 
     orderBy = 'id', 
     order = 'ASC', 
@@ -32,7 +32,7 @@ export async function getView(
   ) {
     console.log('[mysql.getView]');
     return apiRequest(
-        tableName,
+        viewName,
         params,
         keys,
         orderBy,
@@ -57,7 +57,7 @@ export async function getView(
 
     return apiRequest(
         tableName,
-        '',
+        '0',
         keys,
         orderBy,
         order,
@@ -70,7 +70,7 @@ export async function getView(
 
   export async function apiRequest(
     tableName, 
-    params = '',
+    params = '0',
     keys = null, 
     orderBy = 'id', 
     order = 'ASC', 
