@@ -1,5 +1,5 @@
 import { clearCookie, getCookie, setCookie } from './cookie';
-import { getData, getJoinData } from './mysql';
+import { getView, getData, getJoinData } from './mysql';
 import { renderPurchaseHeader, renderPurchaseRow } from './renderClientReport';
 import { renderTransactionHeader, renderTransactionRow } from './renderClientReport';
 import '@plugins/slick-slider/slick.css';

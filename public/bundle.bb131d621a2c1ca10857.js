@@ -256,7 +256,7 @@ async function getData(
     );
   }
 
-async function mysql_getView(
+async function getView(
     tableName, 
     keys = null, 
     orderBy = 'id', 
