@@ -97,7 +97,7 @@ window.addEventListener(                                            // ON LOAD W
         busyIndicator = new BusyIndicator('.busy-indicator', 'busy-indicator-hide')
         // загружаем список клиентов
         busyIndicator.show();
-        getData('client', ['*'], 'id', 'ASC', ['0'],  0).then(responseData => {
+        getData('client', ['*'], 'id', 'ASC', [],  0).then(responseData => {
             data = responseData;
             for(var key in data) {
                 let item = data[key];
