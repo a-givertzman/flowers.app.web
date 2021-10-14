@@ -3,8 +3,7 @@ export async function getData(
     keys = null, 
     orderBy = 'id', 
     order = 'ASC', 
-    searchField = [], 
-    searchValue = '%',
+    where = [], 
     limit,
     url = '/getData.php'
   ) {
@@ -14,8 +13,28 @@ export async function getData(
         keys,
         orderBy,
         order,
-        searchField,
-        searchValue,
+        where,
+        limit,
+        url  
+    );
+  }
+
+export async function getView(
+    tableName, 
+    keys = null, 
+    orderBy = 'id', 
+    order = 'ASC', 
+    where = [], 
+    limit,
+    url = '/getView.php'
+  ) {
+    console.log('[mysql.getView]');
+    return apiRequest(
+        tableName,
+        keys,
+        orderBy,
+        order,
+        where,
         limit,
         url  
     );
