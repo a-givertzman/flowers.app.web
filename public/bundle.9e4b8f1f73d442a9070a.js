@@ -293,10 +293,12 @@ window.addEventListener(                                            // ON LOAD W
                 purchaseData = {};
                 for (var key in responseData) {
                     row = responseData[key];
+                    console.log('row:', row);
                     if (!productIdSet.has(row['product/id'])) {
                         purchaseData[key] = row;
+                        console.log('used');
                     }
-                    productIdSet.add(row['product/id']);
+                    productIdSet.add(Number(row['product/id']));
                 }
                 console.log('productIdSet:', productIdSet);
                 console.log('purchaseData:', purchaseData);
