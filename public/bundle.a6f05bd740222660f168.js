@@ -289,8 +289,8 @@ window.addEventListener(                                            // ON LOAD W
                 var table = document.querySelector('table.purchase-items');
                 var tableBody;
                 var purchase_id = -1;
-                var productIdSet = new Set();
-                purchaseData = {};
+                const productIdSet = new Set();
+                var purchaseData = {};
                 for (var key in responseData) {
                     row = responseData[key];
                     console.log('row:', row);
