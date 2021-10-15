@@ -40,15 +40,15 @@ module.exports = {
     },
     plugins: [
         new HTMLPlugin({
-            title: 'Отчет по закупке',
+            title: 'Отчет участника',
             template: './src/index.html',
             filename: 'index.html',
         }),
-        // new HTMLPlugin({
-        //     title: 'Расчет стоимости уборки помещения',
-        //     template: './src/cleaning-calc.html',
-        //     filename: 'cleaning-calc.html',
-        // }),
+        new HTMLPlugin({
+            title: 'Оплата',
+            template: './src/payment.html',
+            filename: 'payment.html',
+        }),
         // new HTMLPlugin({
         //     title: 'Заказать уборку помещения',
         //     template: './src/bookong.html',
