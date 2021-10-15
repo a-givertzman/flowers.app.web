@@ -280,7 +280,7 @@ window.addEventListener(                                            // ON LOAD W
             busyIndicator.show();
             var where = [{operator: 'where', field: 'purchase/id', cond: '=', value: selectedId}];
             (0,mysql/* getView */.Xe)({
-                tableName: 'purchaseMemberView', 
+                tableName: 'purchaseContentView', 
                 params: '0', 
                 keys: ['*'],
                 orderBy: 'purchase/id', 
