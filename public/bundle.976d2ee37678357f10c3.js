@@ -734,7 +734,8 @@ window.addEventListener(                                            // ON LOAD W
             busyIndicator.show();
             var where = [{operator: 'where', field: 'client/id', cond: '=', value: selectedId}];
             getView(
-                'purchaseMemberView', 
+                'purchaseMemberView',
+                '0'
                 ['*'],
                 // ['id','purchase/id','purchase/name','client/id','client/group','client/name','client/phone','client/account','purchase_content/id','product/id','product/group','product/name','product/order_quantity','count','distributed','product/primary_price','product/primary_currency','purchase_content/sale_price','purchase_content/sale_currency','purchase_content/shipping','cost','paid','torefound','refounded'], 
                 'purchase/id', 'ASC', 
@@ -773,6 +774,7 @@ window.addEventListener(                                            // ON LOAD W
             var where = [{operator: 'where', field: 'client/id', cond: '=', value: selectedId}];
             getView(
                 'clientTransactions',
+                '0'
                 ['*'], 
                 'date', 'ASC', 
                 where, 
