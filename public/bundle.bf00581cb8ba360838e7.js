@@ -706,7 +706,7 @@ window.addEventListener(                                            // ON LOAD W
 
                 // console.log('responseData:', responseData);
                 var table = document.querySelector('table.purchase-items');
-                var tableBody = document.querySelector('table.purchase-items tbody');
+                var tableBody;// = document.querySelector('table.purchase-items tbody');
                 var purchase_id = -1;
                 for (var key in responseData) {
                     var rowData = responseData[key];
@@ -744,12 +744,24 @@ window.addEventListener(                                            // ON LOAD W
             }).then(responseData => {
 
                 console.log('responseData:', responseData);
+
                 var table = document.querySelector('table.transaction-items');
-                var newTransaction = renderTransactionHeader(rowData);
-                table.append(newTransaction.thead);
-                table.append(newTransaction.tbody);
-                var tableBody = newTransaction.tbody;
+                var tableBody;// = document.querySelector('table.transaction-items tbody');
+
+                var client_id = -1;
                 for (var key in responseData) {
+
+                    // если изменился id закупки
+                    // то добавляем в таблицу заголовок этой закупки
+                    if (client_id != rowData['client/id']) {
+                        client_id = rowData['client/id'];
+                        // console.log('next purchase:', rowData);
+                        var newTransaction = renderTransactionHeader(rowData);
+                        table.append(newTransaction.thead);
+                        table.append(newTransaction.tbody);
+                        tableBody = newTransaction.tbody;
+                    }
+
                     var rowData = responseData[key];
                     console.log('rowData:', rowData);
                     var row = renderTransactionRow(rowData);
