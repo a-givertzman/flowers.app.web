@@ -161,8 +161,8 @@ window.addEventListener(                                            // ON LOAD W
                 }
                 console.log('productIdSet:', productIdSet);
                 console.log('purchaseData:', purchaseData);
-                purchaseData.forEach (rowData => {
-                    // var rowData = purchaseData[key];
+                for (var key in purchaseData) {
+                    var rowData = purchaseData[key];
                     
                     // если изменился id закупки
                     // то добавляем в таблицу заголовок этой закупки
@@ -182,7 +182,7 @@ window.addEventListener(                                            // ON LOAD W
                         console.log('row changed:', e.target);
                         console.log('row checked:', e.target.checked);
                     });                
-                });
+                };
 
             }).then( purchaseMemberData => {
 
