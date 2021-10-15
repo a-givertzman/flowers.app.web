@@ -149,7 +149,7 @@ window.addEventListener(                                            // ON LOAD W
                 var tableBody;
                 var purchase_id = -1;
                 const result = Object.keys(responseData).map((key) => [key, responseData[key]]);
-                const purchaseData = [...set(result)];
+                const purchaseData = [...new Set(result)];
                 console.log('responseData:', purchaseData);
                 for (var key in purchaseData) {
                     var rowData = purchaseData[key];
