@@ -314,6 +314,7 @@ window.addEventListener(                                            // ON LOAD W
                     console.log('row checkbox:', checkBox);
                     checkBox?.addEventListener('change', (e) => {
                         console.log('row changed:', e.target);
+                        console.log('row checked:', e.target.value);
                     });                
                 };
 
