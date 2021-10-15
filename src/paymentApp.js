@@ -165,6 +165,9 @@ window.addEventListener(                                            // ON LOAD W
                     var row = renderPurchaseRow(rowData);
                     // console.log('row:', row);
                     tableBody.append(row);
+                    row.querySelector(`#${row['id']}`)?.addEventListener('change', (e) => {
+                        console.log('row changed:', e.target);
+                    });                
                 };
 
             }).catch(e => {

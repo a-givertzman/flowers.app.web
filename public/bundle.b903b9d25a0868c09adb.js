@@ -73,9 +73,6 @@ function renderPurchaseRow(row) {
     `;
     var newRow = document.createElement('tr');
     newRow.innerHTML = rowHtml.trim();
-    newRow.querySelector(`#${row['id']}`)?.addEventListener('change', (e) => {
-        console.log('row changed:');
-    });
     return newRow;
 }
 
@@ -313,6 +310,9 @@ window.addEventListener(                                            // ON LOAD W
                     var row = renderPurchaseRow(rowData);
                     // console.log('row:', row);
                     tableBody.append(row);
+                    row.querySelector(`#${row['id']}`)?.addEventListener('change', (e) => {
+                        console.log('row changed:', e.target);
+                    });                
                 };
 
             }).catch(e => {
