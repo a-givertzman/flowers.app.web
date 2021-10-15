@@ -332,13 +332,13 @@ function renderPurchaseHeader(row) {
                 <th>PrID</th>
                 <th>Группа</th>
                 <th>Нименование</th>
-                <th><span>Заказано</span></th>
-                <th><span>Получено</span></th>
+                <th><span>Заказал</span></th>
+                <th><span>Получил</span></th>
                 <th>Цена закупки</th>
                 <th>Цена</th>
                 <th><span>Транспортные расходы</span></th>
                 <th><span>Стоимость</span></th>
-                <th><span>Оплачено</span></th>
+                <th><span>Оплатил</span></th>
                 <th><span>Сумма к возврату</span></th>
                 <th><span>Возвращено</span></th>
             </tr>
@@ -395,12 +395,12 @@ function renderTransactionHeader(row) {
                 <th>id</th>
                 <th>Дата</th>
                 <th>Организатор</th>
-                <th>Сумма</th>
+                <th><span>Сумма</span></th>
                 <th>PuM/id</th>
                 <th>Закупка</th>
                 <th>Товар</th>
                 <th>Комментарий</th>
-                <th>Баланс после операции</th>
+                <th><span>Баланс после операции</span></th>
             </tr>
         </thead>
     `;
