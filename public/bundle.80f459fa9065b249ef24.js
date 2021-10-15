@@ -613,6 +613,7 @@ $(function() {
     $('.search-purchase-select').select2({
         placeholder: 'ID / ФИО / номер телефона',
         width: '100%', // need to override the changed default
+        multiple: false,
         matcher: matchCustom
     });
 });
@@ -702,7 +703,7 @@ window.addEventListener(                                            // ON LOAD W
             getView({
                 tableName: 'purchaseMemberView', 
                 params: '0', 
-                keys: ['*'], // ['id','purchase/id','purchase/name','client/id','client/group','client/name','client/phone','client/account','purchase_content/id','product/id','product/group','product/name','product/order_quantity','count','distributed','product/primary_price','product/primary_currency','purchase_content/sale_price','purchase_content/sale_currency','purchase_content/shipping','cost','paid','torefound','refounded'], 
+                keys: ['*'],
                 orderBy: 'purchase/id', 
                 order: 'ASC', 
                 where: where, 
@@ -711,7 +712,7 @@ window.addEventListener(                                            // ON LOAD W
 
                 // console.log('responseData:', responseData);
                 var table = document.querySelector('table.purchase-items');
-                var tableBody;// = document.querySelector('table.purchase-items tbody');
+                var tableBody;
                 var purchase_id = -1;
                 for (var key in responseData) {
                     var rowData = responseData[key];
@@ -751,7 +752,7 @@ window.addEventListener(                                            // ON LOAD W
                 console.log('responseData:', responseData);
 
                 var table = document.querySelector('table.transaction-items');
-                var tableBody;// = document.querySelector('table.transaction-items tbody');
+                var tableBody;
 
                 var client_id = -1;
                 for (var key in responseData) {
@@ -768,9 +769,9 @@ window.addEventListener(                                            // ON LOAD W
                         tableBody = newTransaction.tbody;
                     }
 
-                    console.log('rowData:', rowData);
+                    // console.log('rowData:', rowData);
                     var row = renderTransactionRow(rowData);
-                    console.log('row:', row);
+                    // console.log('row:', row);
                     tableBody.append(row);
                 };
 
