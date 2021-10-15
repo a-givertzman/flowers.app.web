@@ -165,7 +165,7 @@ window.addEventListener(                                            // ON LOAD W
                     var row = renderPurchaseRow(rowData);
                     // console.log('row:', row);
                     tableBody.append(row);
-                    let checkBox = row.querySelector(`#${row['id']}`);
+                    let checkBox = row.querySelector(`#${rowData['id']}`);
                     console.log('row checkbox:', checkBox);
                     checkBox?.addEventListener('change', (e) => {
                         console.log('row changed:', e.target);
