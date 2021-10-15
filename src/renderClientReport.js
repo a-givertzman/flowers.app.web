@@ -65,7 +65,7 @@ export function renderPurchaseRow(row) {
 export function renderTransactionHeader(row) {
     var theadHtml = `
         <thead>
-            <tr class="purchase-row-header">
+            <tr class="transaction-row-header">
                 <th colspan="100">Ваши транзакции [${row['client/id']}] ${row['client/name']}</th>
             </tr>
             <tr class="transaction-row-header">
