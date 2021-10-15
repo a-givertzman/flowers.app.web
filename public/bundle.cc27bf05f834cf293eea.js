@@ -74,7 +74,7 @@ function renderPurchaseRow(row) {
     var newRow = document.createElement('tr');
     newRow.innerHTML = rowHtml.trim();
     newRow.querySelector(`#${row['id']}`).addEventListener('change', e => {
-        console.log('row changed:', e.target.id);
+        console.log('row changed:', e.target);
     });
     return newRow;
 }
