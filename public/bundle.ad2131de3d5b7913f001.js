@@ -292,17 +292,15 @@ window.addEventListener(                                            // ON LOAD W
                 var purchaseData = {};
                 for (var key in responseData) {
                     const row = responseData[key];
-                    console.log('row:', row);
                     if (!productIdSet.has(Number(row['product/id']))) {
                         purchaseData[key] = row;
-                        console.log('used');
                     }
                     productIdSet.add(Number(row['product/id']));
                 }
                 console.log('purchaseData:', purchaseData);
                 if (Object.keys(purchaseData).length > 0) {
                     // добавляем в таблицу заголовок
-                    var newPurchase = renderPurchaseHeader(rowData);
+                    var newPurchase = renderPurchaseHeader();
                     table.append(newPurchase.thead);
                     table.append(newPurchase.tbody);
                     tableBody = newPurchase.tbody;
