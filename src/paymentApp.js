@@ -153,7 +153,7 @@ window.addEventListener(                                            // ON LOAD W
                 for (var key in responseData) {
                     const row = responseData[key];
                     console.log('row:', row);
-                    if (!productIdSet.has(row['product/id'])) {
+                    if (!productIdSet.has(Number(row['product/id']))) {
                         purchaseData[key] = row;
                         console.log('used');
                     }
