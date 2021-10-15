@@ -165,65 +165,63 @@ window.addEventListener(                                            // ON LOAD W
                     var row = renderPurchaseRow(rowData);
                     // console.log('row:', row);
                     tableBody.append(row);
-                    let checkBox = row.querySelector(`#chbx${rowData['id']}`);
-                    console.log('row checkbox:', checkBox);
-                    checkBox?.addEventListener('change', (e) => {
+                    row.querySelector(`#chbx${rowData['id']}`)?.addEventListener('change', (e) => {
                         console.log('row changed:', e.target);
                         console.log('row checked:', e.target.checked);
                     });                
                 };
 
+            }).then( purchaseMemberData => {
+
+                return 0;
+                // транзакции клиента
+                busyIndicator.show();
+                var where = [{operator: 'where', field: 'client/id', cond: '=', value: selectedId}];
+                getView({
+                    tableName: 'clientTransactionView', 
+                    params: '0', 
+                    keys: ['*'], // ['id','purchase/id','purchase/name','client/id','client/group','client/name','client/phone','client/account','purchase_content/id','product/id','product/group','product/name','product/order_quantity','count','distributed','product/primary_price','product/primary_currency','purchase_content/sale_price','purchase_content/sale_currency','purchase_content/shipping','cost','paid','torefound','refounded'], 
+                    orderBy: 'date', 
+                    order: 'ASC', 
+                    where: where, 
+                    limit: 0,
+                }).then(responseData => {
+
+                    console.log('responseData:', responseData);
+
+                    var table = document.querySelector('table.transaction-items');
+                    var tableBody;
+
+                    var client_id = -1;
+                    for (var key in responseData) {
+                        var rowData = responseData[key];
+
+                        // если изменился id закупки
+                        // то добавляем в таблицу заголовок этой закупки
+                        if (client_id != rowData['client/id']) {
+                            client_id = rowData['client/id'];
+                            // console.log('next purchase:', rowData);
+                            var newTransaction = renderTransactionHeader(rowData);
+                            table.append(newTransaction.thead);
+                            table.append(newTransaction.tbody);
+                            tableBody = newTransaction.tbody;
+                        }
+
+                        // console.log('rowData:', rowData);
+                        var row = renderTransactionRow(rowData);
+                        // console.log('row:', row);
+                        tableBody.append(row);
+                    };
+
+                    busyIndicator.hide();
+                });
+                    // .catch(e => {
+                    //     busyIndicator.hide();
+                    // });
+
             }).catch(e => {
                 busyIndicator.hide();
             });
-            // транзакции клиента
-            busyIndicator.show();
-            var where = [{operator: 'where', field: 'client/id', cond: '=', value: selectedId}];
-            getView({
-                tableName: 'clientTransactionView', 
-                params: '0', 
-                keys: ['*'], // ['id','purchase/id','purchase/name','client/id','client/group','client/name','client/phone','client/account','purchase_content/id','product/id','product/group','product/name','product/order_quantity','count','distributed','product/primary_price','product/primary_currency','purchase_content/sale_price','purchase_content/sale_currency','purchase_content/shipping','cost','paid','torefound','refounded'], 
-                orderBy: 'date', 
-                order: 'ASC', 
-                where: where, 
-                limit: 0,
-            }).then(responseData => {
-
-                console.log('responseData:', responseData);
-
-                var table = document.querySelector('table.transaction-items');
-                var tableBody;
-
-                var client_id = -1;
-                for (var key in responseData) {
-                    var rowData = responseData[key];
-
-                    // если изменился id закупки
-                    // то добавляем в таблицу заголовок этой закупки
-                    if (client_id != rowData['client/id']) {
-                        client_id = rowData['client/id'];
-                        // console.log('next purchase:', rowData);
-                        var newTransaction = renderTransactionHeader(rowData);
-                        table.append(newTransaction.thead);
-                        table.append(newTransaction.tbody);
-                        tableBody = newTransaction.tbody;
-                    }
-
-                    // console.log('rowData:', rowData);
-                    var row = renderTransactionRow(rowData);
-                    // console.log('row:', row);
-                    tableBody.append(row);
-                };
-
-                busyIndicator.hide();
-            }).catch(e => {
-                busyIndicator.hide();
-            });
-
-            // getData('purchase_member', ['*'], 'id', 'ASC', ['client/id'], selectedId, 0).then(responseData => {
-                
-            //     console.log('responseData:', responseData);
-            // });
         });
         
         $('.search-purchase-select').on('select2:unselect', e => {
