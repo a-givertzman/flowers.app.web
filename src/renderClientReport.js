@@ -75,7 +75,7 @@ export function renderTransactionHeader(row) {
                 <th>Сумма</th>
                 <th>PuM/id</th>
                 <th>Товар</th>
-                <th>description</th>
+                <th>Комментарий</th>
                 <th>Баланс после операции</th>
             </tr>
         </thead>
