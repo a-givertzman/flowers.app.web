@@ -111,7 +111,8 @@ if (showMenuBtn) {
 window.addEventListener(                                            // ON LOAD WINDOW
     'load', (event) => {
         busyIndicator = new _plugins_busy_indicator_busy_js__WEBPACK_IMPORTED_MODULE_2__/* .BusyIndicator */ .E('.busy-indicator', 'busy-indicator-hide')
-        // загружаем список клиентов
+        
+        // загружаем список закупок
         busyIndicator.show();
         (0,_mysql__WEBPACK_IMPORTED_MODULE_3__/* .getData */ .Yu)({
             tableName: 'purchase', 
@@ -125,7 +126,7 @@ window.addEventListener(                                            // ON LOAD W
             for(var key in data) {
                 let item = data[key];
                 $('.search-purchase-select')
-                    .append(new Option(item.id + ' | ' + item.name + ' | ' + item.detales + ' | ' + item.status, false))
+                    .append(new Option(item.id + ' | ' + item.name + ' | ' + item.detales + ' | ' + item.status, item.id, false))
                     .trigger('change');
             }
             busyIndicator.hide();
