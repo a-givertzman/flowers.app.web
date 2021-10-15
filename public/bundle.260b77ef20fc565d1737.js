@@ -416,15 +416,17 @@ function renderTransactionHeader(row) {
 
 // рендерит одну запись из таблицы transaction
 function renderTransactionRow(row) {
+    let purchaseMemberId = row['purchase_member/id'] ? row['purchase_member/id'] : '';
+    let purchaseName = row['purchase/name'] ? row['purchase/name'] : '-';
     var rowHtml = `
         <tr class="transaction-row">
             <td>${row['id']}</td>
             <td>${row['date']}</td>
             <td>${row['account_owner']}</td>
             <td>${row['value']} RUB</td>
-            <td>${row['purchase_member/id']}</td>
+            <td>${purchaseMemberId}</td>
             <td>
-                ${row['purchase/name']}
+                ${purchaseName}
             </td>
             <td>
                 ${row['description']}
