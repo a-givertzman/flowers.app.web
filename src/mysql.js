@@ -17,17 +17,17 @@ export async function getView(args) {
 }
 
 
-  export async function apiRequest(args) {
+async function apiRequest(args) {
     console.log('[mysql.apiRequest]');
 
-    tableName = args.tableName ? args.tableName : '';
-    params = args.params ? args.params : '0';
-    keys = args.keys ? args.keys : ['*'];
-    orderBy = args.orderBy ? args.orderBy : 'id';
-    order = args.order ? order : 'ASC';
-    where = args.where ? args.where : [];
-    limit = args.limit ? args.limit : 0;
-    url = args.url ? args.url : '';
+    var tableName = args.tableName ? args.tableName : '';
+    var params = args.params ? args.params : '0';
+    var keys = args.keys ? args.keys : ['*'];
+    var orderBy = args.orderBy ? args.orderBy : 'id';
+    var order = args.order ? order : 'ASC';
+    var where = args.where ? args.where : [];
+    var limit = args.limit ? args.limit : 0;
+    var url = args.url ? args.url : '';
 
     var body = new FormData();
     body.append( "tableName", JSON.stringify(tableName) );
@@ -80,4 +80,4 @@ export async function getView(args) {
         var responseText = response.statusText;
         alert('Ошибка', '[' + responseCode + '] ' + responseText);
     }
-  }
+}
