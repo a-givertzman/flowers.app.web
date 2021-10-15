@@ -151,7 +151,7 @@ window.addEventListener(                                            // ON LOAD W
                 const productIdSet = new Set();
                 var purchaseData = {};
                 for (var key in responseData) {
-                    row = responseData[key];
+                    const row = responseData[key];
                     console.log('row:', row);
                     if (!productIdSet.has(row['product/id'])) {
                         purchaseData[key] = row;
