@@ -112,9 +112,3 @@ export function renderTransactionRow(row) {
     newRow.innerHTML = rowHtml.trim();
     return newRow;
 }
-
-function newCheckBox() {
-    let checkBox = document.createElement(input);
-    checkBox
-    return checkBox;
-}

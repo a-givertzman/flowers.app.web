@@ -5,12 +5,12 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 
 module.exports = {
     mode: 'development',
-    stats: 'normal',
+    // stats: 'normal',
     entry: {
-        app: [
-            './src/plugins/select2-4.1.0-rc.0/dist/js/select2.min.js',
-            './src/app.js', 
-        ],
+        // app: [
+        //     './src/plugins/select2-4.1.0-rc.0/dist/js/select2.min.js',
+        //     './src/app.js', 
+        // ],
         paymentApp: [
             './src/plugins/select2-4.1.0-rc.0/dist/js/select2.min.js',
             './src/paymentApp.js', 
@@ -32,6 +32,18 @@ module.exports = {
         path: path.resolve(__dirname, 'public')
     },
     resolve: {
+        fallback: { 
+            "os": require.resolve("os-browserify/browser"),
+            "assert": require.resolve("assert/"),
+            "constants": require.resolve("constants-browserify"),
+            "tty": require.resolve("tty-browserify"),
+            "path": false, "util": false, "fs": false, "crypto": false,
+            "zlib": false, "stream": false, "buffer": false, "https": false,
+            "http": false, "vm": false
+        },
+        // fallback: { "util": require.resolve("util/") },
+        // fallback: { "util": false },
+        // fallback: { "fs": false },
         alias: {
             '@plugins': path.resolve(__dirname, 'src/plugins'),
             '@fonts': path.resolve(__dirname, 'src/css/fonts'),
@@ -44,12 +56,12 @@ module.exports = {
 
     },
     plugins: [
-        new HTMLPlugin({
-            title: 'Отчет по закупкам участника',
-            template: './src/index.html',
-            filename: 'index.html',
-            chunks: ['app'],
-        }),
+        // new HTMLPlugin({
+        //     title: 'Отчет по закупкам участника',
+        //     template: './src/index.html',
+        //     filename: 'index.html',
+        //     chunks: ['app'],
+        // }),
         new HTMLPlugin({
             title: 'Оплата',
             template: './src/payment.html',

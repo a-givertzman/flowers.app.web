@@ -1,18 +1,21 @@
-import { clearCookie, getCookie, setCookie } from './cookie';
-import { getView, getData, getJoinData } from './mysql';
-import { renderPurchaseHeader, renderPurchaseRow } from './renderClientReport';
-import { renderTransactionHeader, renderTransactionRow } from './renderClientReport';
-import '@plugins/slick-slider/slick.css';
+'use strict';
+import { getCookie, setCookie, clearCookie } from './cookie.js';
+import { getView, getData, getJoinData } from './mysql.js';
+import { renderPurchaseHeader, renderPurchaseRow } from './renderClientReport.js';
+import { renderTransactionHeader, renderTransactionRow } from './renderClientReport.js';
+// import '@plugins/slick-slider/slick.css';
 
-import {BusyIndicator} from '@plugins/busy-indicator/busy.js'
+import { BusyIndicator } from './plugins/busy-indicator/busy.js';
 
 // import '@plugins/jquery-form-styler/jquery.formstyler.css';
 // import '@plugins/jquery-form-styler/jquery.formstyler.theme.css';
-import './css/style.css';
-import './css/media.css';
+// import './css/style.css';
+// import './css/media.css';
 // import slider_1_background_img from '@img/slider-background.png';
 // import header_logo_img from '@img/header-logo.png';
-import { User } from './user';
+// import { User } from './user';
+
+const domainPath = 'http://u1489690.isp.regruhosting.ru/';//'../../';
 
 var data = null;
 var busyIndicator;
@@ -107,6 +110,7 @@ window.addEventListener(                                            // ON LOAD W
             order: 'ASC', 
             where: [], 
             limit: 0,
+            url: domainPath + 'getData.php',
         }).then(responseData => {
             data = responseData;
             for(var key in data) {

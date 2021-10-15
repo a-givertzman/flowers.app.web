@@ -1,4 +1,5 @@
-export class BusyIndicator {
+'use strict';
+class BusyIndicator {
     constructor(selector, hiddenClassName) {
         this.selector = selector;
         this.hiddenClassName = hiddenClassName;
@@ -13,4 +14,6 @@ export class BusyIndicator {
     toggle() {
         this.busyIndicator.classList.toggle(this.hiddenClassName)
     }
-};
+}
+
+export { BusyIndicator };

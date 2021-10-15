@@ -1,18 +1,18 @@
 export async function getData(args) {
     console.log('[mysql.getData]');
-    args.url = args.url ? args.url : '/getData.php';
+    args.url = args.url ? args.url : domainPath + 'getData.php';
     return apiRequest(args);
 }
 
 export async function getJoinData(args) {
   console.log('[musql.getJoinData]');
-  args.url = args.url ? args.url : '/getJoinData.php';
+  args.url = args.url ? args.url : domainPath + 'getJoinData.php';
   return apiRequest(args);
 }
 
 export async function getView(args) {
     console.log('[mysql.getView]');
-    args.url = args.url ? args.url : '/getView.php';
+    args.url = args.url ? args.url : domainPath + 'getView.php';
     return apiRequest(args);
 }
 
@@ -44,12 +44,13 @@ async function apiRequest(args) {
     // mode: 'cors', // no-cors, *cors, same-origin
     // cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
     // credentials: 'same-origin', // include, *same-origin, omit
-    // headers: {
+    headers: {
     //   'Content-Type': 'application/json'
     // //   'Content-Type': 'application/x-www-form-urlencoded',
-    // },
+        'Access-Control-Allow-Origin' : '*',
+    },
     // redirect: 'follow', // manual, *follow, error
-    // referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+    referrerPolicy: "unsafe-url", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
     body: body}; // body data type must match "Content-Type" header    };
     console.log('options:', options);
 
