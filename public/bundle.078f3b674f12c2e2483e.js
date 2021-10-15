@@ -397,6 +397,7 @@ function renderTransactionHeader(row) {
                 <th>Организатор</th>
                 <th>Сумма</th>
                 <th>PuM/id</th>
+                <th>Закупка</th>
                 <th>Товар</th>
                 <th>Комментарий</th>
                 <th>Баланс после операции</th>
@@ -418,6 +419,7 @@ function renderTransactionHeader(row) {
 function renderTransactionRow(row) {
     let purchaseMemberId = row['purchase_member/id'] ? row['purchase_member/id'] : '';
     let purchaseName = row['purchase/name'] ? row['purchase/name'] : '-';
+    let productName = row['product/name'] ? row['product/name'] : '-';
     var rowHtml = `
         <tr class="transaction-row">
             <td>${row['id']}</td>
@@ -425,12 +427,9 @@ function renderTransactionRow(row) {
             <td>${row['account_owner']}</td>
             <td>${row['value']} RUB</td>
             <td>${purchaseMemberId}</td>
-            <td>
-                ${purchaseName}
-            </td>
-            <td>
-                ${row['description']}
-            </td>
+            <td>${purchaseName}</td>
+            <td>${productName}</td>
+            <td>${row['description']}</td>
             <td>${row['client_account']} RUB</td>
         </tr>
     `;
