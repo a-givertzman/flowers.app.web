@@ -150,7 +150,7 @@ window.addEventListener(                                            // ON LOAD W
                 var purchase_id = -1;
                 var productIdSet = new Set();
                 purchaseData = {};
-                for (key in responseData) {
+                for (var key in responseData) {
                     row = responseData[key];
                     if (!productIdSet.has(row['product/id'])) {
                         purchaseData[key] = row;
