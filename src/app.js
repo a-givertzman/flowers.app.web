@@ -123,6 +123,8 @@ window.addEventListener(                                            // ON LOAD W
         // загружаем информацию по выбранному клиенту
         $('.search-purchase-select').on('select2:select', e => {
             console.log('selection id:', e.params.data);
+            clearTablesContent(['table.purchase-items', 'table.transaction-items']);
+            
             var selectedId = e.params.data.id;
 
             // баланс клиента
@@ -219,10 +221,7 @@ window.addEventListener(                                            // ON LOAD W
         });
         
         $('.search-purchase-select').on('select2:unselect', e => {
-            var table = document.querySelector('table.purchase-items');
-            table.innerHTML = '';
-            table = document.querySelector('table.transaction-items');
-            table.innerHTML = '';
+            clearTablesContent(['table.purchase-items', 'table.transaction-items']);
         });
 
         USER.name = getCookie('name');
@@ -240,3 +239,11 @@ window.addEventListener(                                            // ON LOAD W
         // document.querySelector('.slider-1').style.backgroundImage = slider_1_background_img;
         // setFormState(USER);
 });
+
+function clearTablesContent(selectors) {
+    let table;
+    selectors.forEach(tableSelector => {
+        table = document.querySelector(tableSelector);
+        table.innerHTML = '';
+    });
+}

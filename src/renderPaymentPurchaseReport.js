@@ -37,7 +37,7 @@ export function renderPurchaseHeader(row) {
 export function renderPurchaseRow(row) {
     var rowHtml = `
         <tr class="purchase-row">
-            <th><input type="checkbox" name="" id="" checked></th>
+            <th><input type="checkbox" name="" id="${row['id']}" checked></th>
             <td>${row['product/id']}</td>
             <td>${row['product/group']}</td>
             <td>${row['product/name']}</td>
@@ -60,6 +60,9 @@ export function renderPurchaseRow(row) {
     `;
     var newRow = document.createElement('tr');
     newRow.innerHTML = rowHtml.trim();
+    newRow.querySelector(`#${row['id']}`).addEventListener('change', e => {
+        console.log('row changed:', this.id);
+    });
     return newRow;
 }
 
@@ -115,4 +118,10 @@ export function renderTransactionRow(row) {
     var newRow = document.createElement('tr');
     newRow.innerHTML = rowHtml.trim();
     return newRow;
+}
+
+function newCheckBox() {
+    let checkBox = document.createElement(input);
+    checkBox
+    return checkBox;
 }
