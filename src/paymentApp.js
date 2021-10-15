@@ -165,15 +165,11 @@ window.addEventListener(                                            // ON LOAD W
                     var row = renderPurchaseRow(rowData);
                     // console.log('row:', row);
                     tableBody.append(row);
-                    try{
-                        let checkBox = row.querySelector(`#chbx${rowData['id']}`);
-                        console.log('row checkbox:', checkBox);
-                    } catch (e) {
-                        console.log('row error:', e);
-                    }
-                    // checkBox.addEventListener('change', (e) => {
-                    //     console.log('row changed:', e.target);
-                    // });                
+                    let checkBox = row.querySelector(`#chbx${rowData['id']}`);
+                    console.log('row checkbox:', checkBox);
+                    checkBox?.addEventListener('change', (e) => {
+                        console.log('row changed:', e.target);
+                    });                
                 };
 
             }).catch(e => {
