@@ -10,6 +10,10 @@ module.exports = {
             './src/plugins/select2-4.1.0-rc.0/dist/js/select2.min.js',
             './src/app.js', 
         ],
+        paymentApp: [
+            './src/plugins/select2-4.1.0-rc.0/dist/js/select2.min.js',
+            './src/app.js', 
+        ],
     },
     optimization: {
         minimize: false,
@@ -43,11 +47,13 @@ module.exports = {
             title: 'Отчет по закупкам участника',
             template: './src/index.html',
             filename: 'index.html',
+            chunks: ['app'],
         }),
         new HTMLPlugin({
             title: 'Оплата',
             template: './src/payment.html',
             filename: 'payment.html',
+            chunks: ['paymentApp'],
         }),
         // new HTMLPlugin({
         //     title: 'Заказать уборку помещения',
