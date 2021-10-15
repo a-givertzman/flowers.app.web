@@ -60,9 +60,9 @@ export function renderPurchaseRow(row) {
     `;
     var newRow = document.createElement('tr');
     newRow.innerHTML = rowHtml.trim();
-    newRow.querySelector(`#${row['id']}`).addEventListener('change', e => {
-        console.log('row changed:');
-    });
+    // newRow.querySelector(`#${row['id']}`).addEventListener('change', e => {
+    //     console.log('row changed:');
+    // });
     return newRow;
 }
 
