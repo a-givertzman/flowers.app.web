@@ -173,6 +173,7 @@ window.addEventListener(                                            // ON LOAD W
 
             }).then( purchaseMemberData => {
 
+                busyIndicator.hide();
                 return 0;
                 // транзакции клиента
                 busyIndicator.show();
