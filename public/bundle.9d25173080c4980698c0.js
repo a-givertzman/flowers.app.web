@@ -19,7 +19,7 @@ function renderPurchaseHeader(row) {
                 <th colspan="100">Закупка [${row['purchase/id']}] ${row['purchase/name']}</th>
             </tr>
             <tr class="purchase-row">
-                <th><span>Выбор</span><iput type="checkbox"></iput></th>
+                <th><span>Выбор</span>< type="checkbox" checked></th>
                 <th>PrID</th>
                 <th>Группа</th>
                 <th>Нименование</th>
@@ -50,7 +50,7 @@ function renderPurchaseHeader(row) {
 function renderPurchaseRow(row) {
     var rowHtml = `
         <tr class="purchase-row">
-            <th><iput type="checkbox" checked></iput></th>
+            <th><iput type="checkbox" checked></th>
             <td>${row['product/id']}</td>
             <td>${row['product/group']}</td>
             <td>${row['product/name']}</td>
