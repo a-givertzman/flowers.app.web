@@ -289,13 +289,16 @@ window.addEventListener(                                            // ON LOAD W
                 var table = document.querySelector('table.purchase-items');
                 var tableBody;
                 var purchase_id = -1;
-                const productId = Object.keys(responseData).map((key) => responseData[key]['product/id']);
-                console.log('productId:', productId);
-                const productIdSet = new Set(productId);
+                var productIdSet = new Set();
+                purchaseData = {};
+                for (key in responseData) {
+                    row = responseData[key];
+                    if (!productIdSet.has(row['product/id'])) {
+                        purchaseData[key] = row;
+                    }
+                    productIdSet.add(row['product/id']);
+                }
                 console.log('productIdSet:', productIdSet);
-                const purchaseData = Object.keys(responseData).map((key) => 
-                    productIdSet.has(responseData[key]['product/id']) ? responseData[key] : false
-                );
                 console.log('purchaseData:', purchaseData);
                 purchaseData.forEach (rowData => {
                     // var rowData = purchaseData[key];
