@@ -153,7 +153,7 @@ window.addEventListener(                                            // ON LOAD W
                 const productIdSet = new Set(productId);
                 console.log('productIdSet:', productIdSet);
                 const purchaseData = Object.keys(responseData).map((key) => 
-                    responseData[key]['product/id'] in productIdSet ? responseData[key] : false
+                    productIdSet.has(responseData[key]['product/id']) ? responseData[key] : false
                 );
                 console.log('purchaseData:', purchaseData);
                 purchaseData.forEach (rowData => {
