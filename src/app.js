@@ -168,7 +168,7 @@ window.addEventListener(                                            // ON LOAD W
                 tableName: 'clientTransactionView', 
                 params: '0', 
                 keys: ['*'], // ['id','purchase/id','purchase/name','client/id','client/group','client/name','client/phone','client/account','purchase_content/id','product/id','product/group','product/name','product/order_quantity','count','distributed','product/primary_price','product/primary_currency','purchase_content/sale_price','purchase_content/sale_currency','purchase_content/shipping','cost','paid','torefound','refounded'], 
-                orderBy: 'data', 
+                orderBy: 'date', 
                 order: 'ASC', 
                 where: where, 
                 limit: 0,
