@@ -300,7 +300,7 @@ window.addEventListener(                                            // ON LOAD W
                 console.log('purchaseData:', purchaseData);
                 if (Object.keys(purchaseData).length > 0) {
                     // добавляем в таблицу заголовок
-                    var newPurchase = renderPurchaseHeader();
+                    var newPurchase = renderPurchaseHeader({});
                     table.append(newPurchase.thead);
                     table.append(newPurchase.tbody);
                     tableBody = newPurchase.tbody;
