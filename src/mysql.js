@@ -25,7 +25,7 @@ async function apiRequest(args) {
     var params = args.params ? args.params : '0';
     var keys = args.keys ? args.keys : ['*'];
     var orderBy = args.orderBy ? args.orderBy : 'id';
-    var order = args.order ? order : 'ASC';
+    var order = args.order ? args.order : 'ASC';
     var where = args.where ? args.where : [];
     var limit = args.limit ? args.limit : 0;
     var url = args.url ? args.url : '';
