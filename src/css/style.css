@@ -255,9 +255,14 @@ header{
     font-size: 24px;
     font-weight: 500;
     font-family: 'Rubik', serif;
-    line-height: 24px;
+    line-height: 18px;
     color: var(--nero-color);
     margin-bottom: 10px;
+}
+.purchase-selector-title span{
+    float: right;
+    margin-right: 40px;
+    font-size: 16px;    
 }
 
 .purchase-selector-search{
