@@ -614,6 +614,8 @@ $(function() {
         placeholder: 'ID / ФИО / номер телефона',
         width: '100%', // need to override the changed default
         multiple: false,
+        placeholder: "Найди себя",
+        allowClear: true,
         matcher: matchCustom
     });
 });
