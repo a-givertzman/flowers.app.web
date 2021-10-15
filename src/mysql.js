@@ -1,84 +1,34 @@
-export async function getData(
-    tableName, 
-    keys = null, 
-    orderBy = 'id', 
-    order = 'ASC', 
-    where = [], 
-    limit,
-    url = '/getData.php'
-  ) {
+export async function getData(args) {
     console.log('[mysql.getData]');
-    return apiRequest(
-        tableName,
-        '0',
-        keys,
-        orderBy,
-        order,
-        where,
-        limit,
-        url  
-    );
-  }
+    args.url = args.url ? args.url : '/getData.php';
+    return apiRequest(args);
+}
 
-export async function getView(
-    viewName,
-    params = '0',
-    keys = null, 
-    orderBy = 'id', 
-    order = 'ASC', 
-    where = [], 
-    limit,
-    url = '/getView.php'
-  ) {
+export async function getJoinData(args) {
+  console.log('[musql.getJoinData]');
+  args.url = args.url ? args.url : '/getJoinData.php';
+  return apiRequest(args);
+}
+
+export async function getView(args) {
     console.log('[mysql.getView]');
-    return apiRequest(
-        viewName,
-        params,
-        keys,
-        orderBy,
-        order,
-        where,
-        limit,
-        url  
-    );
-  }
+    args.url = args.url ? args.url : '/getView.php';
+    return apiRequest(args);
+}
 
 
-  export async function getJoinData(
-    tableName, 
-    keys = null, 
-    orderBy = 'id', 
-    order = 'ASC', 
-    where = [], 
-    limit,
-    url = '/getJoinData.php'
-  ) {
-    console.log('[musql.getJoinData]');
-
-    return apiRequest(
-        tableName,
-        '0',
-        keys,
-        orderBy,
-        order,
-        where,
-        limit,
-        url  
-    );
-  }
-
-
-  export async function apiRequest(
-    tableName, 
-    params = '0',
-    keys = null, 
-    orderBy = 'id', 
-    order = 'ASC', 
-    where = [], 
-    limit,
-    url,
-  ) {
+  export async function apiRequest(args) {
     console.log('[mysql.apiRequest]');
+
+    tableName = args.tableName ? args.tableName : '';
+    params = args.params ? args.params : '0';
+    keys = args.keys ? args.keys : ['*'];
+    orderBy = args.orderBy ? args.orderBy : 'id';
+    order = args.order ? order : 'ASC';
+    where = args.where ? args.where : [];
+    limit = args.limit ? args.limit : 0;
+    url = args.url ? args.url : '';
+
     var body = new FormData();
     body.append( "tableName", JSON.stringify(tableName) );
     body.append( "params", JSON.stringify(params) );

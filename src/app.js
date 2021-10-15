@@ -97,7 +97,14 @@ window.addEventListener(                                            // ON LOAD W
         busyIndicator = new BusyIndicator('.busy-indicator', 'busy-indicator-hide')
         // загружаем список клиентов
         busyIndicator.show();
-        getData('client', ['*'], 'id', 'ASC', [],  0).then(responseData => {
+        getData({
+            tableName: 'client', 
+            keys: ['*'], 
+            orderBy: 'id', 
+            order: 'ASC', 
+            where: [], 
+            limit: 0,
+        }).then(responseData => {
             data = responseData;
             for(var key in data) {
                 let item = data[key];
@@ -118,15 +125,15 @@ window.addEventListener(                                            // ON LOAD W
             // закупки клиента
             busyIndicator.show();
             var where = [{operator: 'where', field: 'client/id', cond: '=', value: selectedId}];
-            getView(
-                'purchaseMemberView',
-                '0'
-                ['*'],
-                // ['id','purchase/id','purchase/name','client/id','client/group','client/name','client/phone','client/account','purchase_content/id','product/id','product/group','product/name','product/order_quantity','count','distributed','product/primary_price','product/primary_currency','purchase_content/sale_price','purchase_content/sale_currency','purchase_content/shipping','cost','paid','torefound','refounded'], 
-                'purchase/id', 'ASC', 
-                where, 
-                0
-            ).then(responseData => {
+            getView({
+                tableName: 'purchaseMemberView', 
+                params: '0', 
+                keys: ['*'], // ['id','purchase/id','purchase/name','client/id','client/group','client/name','client/phone','client/account','purchase_content/id','product/id','product/group','product/name','product/order_quantity','count','distributed','product/primary_price','product/primary_currency','purchase_content/sale_price','purchase_content/sale_currency','purchase_content/shipping','cost','paid','torefound','refounded'], 
+                orderBy: 'purchase/id', 
+                order: 'ASC', 
+                where: where, 
+                limit: 0,
+            }).then(responseData => {
 
                 // console.log('responseData:', responseData);
                 var table = document.querySelector('table.purchase-items');
@@ -157,14 +164,15 @@ window.addEventListener(                                            // ON LOAD W
             // транзакции клиента
             busyIndicator.show();
             var where = [{operator: 'where', field: 'client/id', cond: '=', value: selectedId}];
-            getView(
-                'clientTransactions',
-                '0'
-                ['*'], 
-                'date', 'ASC', 
-                where, 
-                0
-            ).then(responseData => {
+            getView({
+                tableName: 'clientTransactions', 
+                params: '0', 
+                keys: ['*'], // ['id','purchase/id','purchase/name','client/id','client/group','client/name','client/phone','client/account','purchase_content/id','product/id','product/group','product/name','product/order_quantity','count','distributed','product/primary_price','product/primary_currency','purchase_content/sale_price','purchase_content/sale_currency','purchase_content/shipping','cost','paid','torefound','refounded'], 
+                orderBy: 'data', 
+                order: 'ASC', 
+                where: where, 
+                limit: 0,
+            }).then(responseData => {
 
                 console.log('responseData:', responseData);
                 var table = document.querySelector('table.transaction-items');

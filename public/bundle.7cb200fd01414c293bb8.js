@@ -235,87 +235,37 @@ function clearCookie() {
 }
 
 ;// CONCATENATED MODULE: ./src/mysql.js
-async function getData(
-    tableName, 
-    keys = null, 
-    orderBy = 'id', 
-    order = 'ASC', 
-    where = [], 
-    limit,
-    url = '/getData.php'
-  ) {
+async function getData(args) {
     console.log('[mysql.getData]');
-    return apiRequest(
-        tableName,
-        '0',
-        keys,
-        orderBy,
-        order,
-        where,
-        limit,
-        url  
-    );
-  }
+    args.url = args.url ? args.url : '/getData.php';
+    return apiRequest(args);
+}
 
-async function getView(
-    viewName,
-    params = '0',
-    keys = null, 
-    orderBy = 'id', 
-    order = 'ASC', 
-    where = [], 
-    limit,
-    url = '/getView.php'
-  ) {
+async function getJoinData(args) {
+  console.log('[musql.getJoinData]');
+  args.url = args.url ? args.url : '/getJoinData.php';
+  return apiRequest(args);
+}
+
+async function getView(args) {
     console.log('[mysql.getView]');
-    return apiRequest(
-        viewName,
-        params,
-        keys,
-        orderBy,
-        order,
-        where,
-        limit,
-        url  
-    );
-  }
+    args.url = args.url ? args.url : '/getView.php';
+    return apiRequest(args);
+}
 
 
-  async function getJoinData(
-    tableName, 
-    keys = null, 
-    orderBy = 'id', 
-    order = 'ASC', 
-    where = [], 
-    limit,
-    url = '/getJoinData.php'
-  ) {
-    console.log('[musql.getJoinData]');
-
-    return apiRequest(
-        tableName,
-        '0',
-        keys,
-        orderBy,
-        order,
-        where,
-        limit,
-        url  
-    );
-  }
-
-
-  async function apiRequest(
-    tableName, 
-    params = '0',
-    keys = null, 
-    orderBy = 'id', 
-    order = 'ASC', 
-    where = [], 
-    limit,
-    url,
-  ) {
+  async function apiRequest(args) {
     console.log('[mysql.apiRequest]');
+
+    tableName = args.tableName ? args.tableName : '';
+    params = args.params ? args.params : '0';
+    keys = args.keys ? args.keys : ['*'];
+    orderBy = args.orderBy ? args.orderBy : 'id';
+    order = args.order ? order : 'ASC';
+    where = args.where ? args.where : [];
+    limit = args.limit ? args.limit : 0;
+    url = args.url ? args.url : '';
+
     var body = new FormData();
     body.append( "tableName", JSON.stringify(tableName) );
     body.append( "params", JSON.stringify(params) );
@@ -712,7 +662,14 @@ window.addEventListener(                                            // ON LOAD W
         busyIndicator = new BusyIndicator('.busy-indicator', 'busy-indicator-hide')
         // загружаем список клиентов
         busyIndicator.show();
-        getData('client', ['*'], 'id', 'ASC', [],  0).then(responseData => {
+        getData({
+            tableName: 'client', 
+            keys: ['*'], 
+            orderBy: 'id', 
+            order: 'ASC', 
+            where: [], 
+            limit: 0,
+        }).then(responseData => {
             data = responseData;
             for(var key in data) {
                 let item = data[key];
@@ -733,15 +690,15 @@ window.addEventListener(                                            // ON LOAD W
             // закупки клиента
             busyIndicator.show();
             var where = [{operator: 'where', field: 'client/id', cond: '=', value: selectedId}];
-            getView(
-                'purchaseMemberView',
-                '0'
-                ['*'],
-                // ['id','purchase/id','purchase/name','client/id','client/group','client/name','client/phone','client/account','purchase_content/id','product/id','product/group','product/name','product/order_quantity','count','distributed','product/primary_price','product/primary_currency','purchase_content/sale_price','purchase_content/sale_currency','purchase_content/shipping','cost','paid','torefound','refounded'], 
-                'purchase/id', 'ASC', 
-                where, 
-                0
-            ).then(responseData => {
+            getView({
+                tableName: 'purchaseMemberView', 
+                params: '0', 
+                keys: ['*'], // ['id','purchase/id','purchase/name','client/id','client/group','client/name','client/phone','client/account','purchase_content/id','product/id','product/group','product/name','product/order_quantity','count','distributed','product/primary_price','product/primary_currency','purchase_content/sale_price','purchase_content/sale_currency','purchase_content/shipping','cost','paid','torefound','refounded'], 
+                orderBy: 'purchase/id', 
+                order: 'ASC', 
+                where: where, 
+                limit: 0,
+            }).then(responseData => {
 
                 // console.log('responseData:', responseData);
                 var table = document.querySelector('table.purchase-items');
@@ -772,14 +729,15 @@ window.addEventListener(                                            // ON LOAD W
             // транзакции клиента
             busyIndicator.show();
             var where = [{operator: 'where', field: 'client/id', cond: '=', value: selectedId}];
-            getView(
-                'clientTransactions',
-                '0'
-                ['*'], 
-                'date', 'ASC', 
-                where, 
-                0
-            ).then(responseData => {
+            getView({
+                tableName: 'clientTransactions', 
+                params: '0', 
+                keys: ['*'], // ['id','purchase/id','purchase/name','client/id','client/group','client/name','client/phone','client/account','purchase_content/id','product/id','product/group','product/name','product/order_quantity','count','distributed','product/primary_price','product/primary_currency','purchase_content/sale_price','purchase_content/sale_currency','purchase_content/shipping','cost','paid','torefound','refounded'], 
+                orderBy: 'data', 
+                order: 'ASC', 
+                where: where, 
+                limit: 0,
+            }).then(responseData => {
 
                 console.log('responseData:', responseData);
                 var table = document.querySelector('table.transaction-items');
