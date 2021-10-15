@@ -144,10 +144,9 @@ window.addEventListener(                                            // ON LOAD W
                 limit: 0,
             }).then(responseData => {
 
-                console.log('responseData:', responseData);
+                // console.log('responseData:', responseData);
                 var table = document.querySelector('table.purchase-items');
                 var tableBody;
-                var purchase_id = -1;
                 const productIdSet = new Set();
                 var purchaseData = {};
                 for (var key in responseData) {
@@ -159,30 +158,33 @@ window.addEventListener(                                            // ON LOAD W
                     }
                     productIdSet.add(Number(row['product/id']));
                 }
-                console.log('productIdSet:', productIdSet);
                 console.log('purchaseData:', purchaseData);
-                for (var key in purchaseData) {
-                    var rowData = purchaseData[key];
-                    
-                    // если изменился id закупки
-                    // то добавляем в таблицу заголовок этой закупки
-                    if (purchase_id != rowData['purchase/id']) {
-                        purchase_id = rowData['purchase/id'];
-                        // console.log('next purchase:', rowData);
-                        var newPurchase = renderPurchaseHeader(rowData);
-                        table.append(newPurchase.thead);
-                        table.append(newPurchase.tbody);
-                        tableBody = newPurchase.tbody;
+                if (Object.keys(purchaseData).length > 0) {
+                    // добавляем в таблицу заголовок
+                    var newPurchase = renderPurchaseHeader(rowData);
+                    table.append(newPurchase.thead);
+                    table.append(newPurchase.tbody);
+                    tableBody = newPurchase.tbody;
+
+                    for (var key in purchaseData) {
+                        var rowData = purchaseData[key];
+                        var row = renderPurchaseRow(rowData);
+                        tableBody.append(row);
+                        row.querySelector(`#chbx${rowData['id']}`)?.addEventListener('change', (e) => {
+                            console.log('row changed:', e.target);
+                            console.log('row checked:', e.target.checked);
+                            
+                            const tablePurchase = document.querySelector('table.purchase-items');
+                            console.log('tablePurchase:', tablePurchase);
+                            const tablePurchaseRows = tablePurchase.querySelectorAll('.purchase-row-checkbox');
+                            console.log('tablePurchaseRows:', tablePurchaseRows);
+                            tablePurchaseRows.forEach(tableRow => {
+                                console.log('tableRow:', tableRow);
+                                console.log('tableRow id:', tableRow.name);
+                            });
+                        });                
                     }
-                    // console.log('rowData:', rowData);
-                    var row = renderPurchaseRow(rowData);
-                    // console.log('row:', row);
-                    tableBody.append(row);
-                    row.querySelector(`#chbx${rowData['id']}`)?.addEventListener('change', (e) => {
-                        console.log('row changed:', e.target);
-                        console.log('row checked:', e.target.checked);
-                    });                
-                };
+                }
 
             }).then( purchaseMemberData => {
 
