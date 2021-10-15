@@ -55,16 +55,16 @@ async function apiRequest(args) {
 
     var response = await fetch(url, options);
 
-    console.log('response data:', response);
+    // console.log('response data:', response);
     const responseCode = response.status;
     
     const jsonData = await response.json();
-    console.log('json data:', jsonData);
+    // console.log('json data:', jsonData);
     
     const parsedData = (typeof(jsonData) == 'object') ? jsonData : JSON.parse(jsonData);
     
     var errCount = parsedData.errCount;
-    console.log('errCount: ', errCount);
+    // console.log('errCount: ', errCount);
 
     if (errCount > 0) {
         var errDump = parsedData.errDump;

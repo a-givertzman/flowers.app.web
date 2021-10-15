@@ -135,7 +135,7 @@ window.addEventListener(                                            // ON LOAD W
             busyIndicator.show();
             var where = [{operator: 'where', field: 'purchase/id', cond: '=', value: selectedId}];
             getView({
-                tableName: 'purchaseContentView', 
+                tableName: 'purchaseMemberView', 
                 params: '0', 
                 keys: ['*'],
                 orderBy: 'purchase/id', 
@@ -144,12 +144,14 @@ window.addEventListener(                                            // ON LOAD W
                 limit: 0,
             }).then(responseData => {
 
-                // console.log('responseData:', responseData);
+                console.log('responseData:', responseData);
                 var table = document.querySelector('table.purchase-items');
                 var tableBody;
                 var purchase_id = -1;
-                for (var key in responseData) {
-                    var rowData = responseData[key];
+                let purchaseData = [...set(responseData)];
+                console.log('responseData:', purchaseData);
+                for (var key in purchaseData) {
+                    var rowData = purchaseData[key];
                     
                     // если изменился id закупки
                     // то добавляем в таблицу заголовок этой закупки
