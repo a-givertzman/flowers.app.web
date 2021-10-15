@@ -2,7 +2,6 @@ import { clearCookie, getCookie, setCookie } from './cookie';
 import { getView, getData, getJoinData } from './mysql';
 import { renderPurchaseHeader, renderPurchaseRow } from './renderClientReport';
 import { renderTransactionHeader, renderTransactionRow } from './renderClientReport';
-import '@plugins/slick-slider/slick.css';
 
 import {BusyIndicator} from '@plugins/busy-indicator/busy.js'
 
@@ -120,7 +119,7 @@ window.addEventListener(                                            // ON LOAD W
             busyIndicator.hide();
         });
 
-        // загружаем информацию по выбранному клиенту
+        // загружаем информацию по выбранной закупке
         $('.search-purchase-select').on('select2:select', e => {
             console.log('selection id:', e.params.data);
             var selectedId = e.params.data.id;
@@ -131,7 +130,7 @@ window.addEventListener(                                            // ON LOAD W
             
             // закупки клиента
             busyIndicator.show();
-            var where = [{operator: 'where', field: 'client/id', cond: '=', value: selectedId}];
+            var where = [{operator: 'where', field: 'purchase/id', cond: '=', value: selectedId}];
             getView({
                 tableName: 'purchaseMemberView', 
                 params: '0', 

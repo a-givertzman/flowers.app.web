@@ -2,16 +2,94 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 672:
+/***/ 852:
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(81);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(645);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "/* Slider */\n.slick-slider\n{\n    position: relative;\n\n    display: block;\n    box-sizing: border-box;\n\n    -webkit-user-select: none;\n       -moz-user-select: none;\n        -ms-user-select: none;\n            user-select: none;\n\n    -webkit-touch-callout: none;\n    -khtml-user-select: none;\n    -ms-touch-action: pan-y;\n        touch-action: pan-y;\n    -webkit-tap-highlight-color: transparent;\n}\n\n.slick-list\n{\n    position: relative;\n\n    display: block;\n    overflow: hidden;\n\n    margin: 0;\n    padding: 0;\n}\n.slick-list:focus\n{\n    outline: none;\n}\n.slick-list.dragging\n{\n    cursor: pointer;\n    cursor: hand;\n}\n\n.slick-slider .slick-track,\n.slick-slider .slick-list\n{\n    -webkit-transform: translate3d(0, 0, 0);\n       -moz-transform: translate3d(0, 0, 0);\n        -ms-transform: translate3d(0, 0, 0);\n         -o-transform: translate3d(0, 0, 0);\n            transform: translate3d(0, 0, 0);\n}\n\n.slick-track\n{\n    position: relative;\n    top: 0;\n    left: 0;\n\n    display: block;\n    margin-left: auto;\n    margin-right: auto;\n}\n.slick-track:before,\n.slick-track:after\n{\n    display: table;\n\n    content: '';\n}\n.slick-track:after\n{\n    clear: both;\n}\n.slick-loading .slick-track\n{\n    visibility: hidden;\n}\n\n.slick-slide\n{\n    display: none;\n    float: left;\n\n    height: 100%;\n    min-height: 1px;\n}\n[dir='rtl'] .slick-slide\n{\n    float: right;\n}\n.slick-slide img\n{\n    display: block;\n}\n.slick-slide.slick-loading img\n{\n    display: none;\n}\n.slick-slide.dragging img\n{\n    pointer-events: none;\n}\n.slick-initialized .slick-slide\n{\n    display: block;\n}\n.slick-loading .slick-slide\n{\n    visibility: hidden;\n}\n.slick-vertical .slick-slide\n{\n    display: block;\n\n    height: auto;\n\n    border: 1px solid transparent;\n}\n.slick-arrow.slick-hidden {\n    display: none;\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ 524:
 /***/ ((__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) => {
 
-/* harmony import */ var _cookie__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(315);
-/* harmony import */ var _mysql__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(340);
-/* harmony import */ var _renderClientReport__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(606);
-/* harmony import */ var _plugins_slick_slider_slick_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(969);
-/* harmony import */ var _plugins_busy_indicator_busy_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(172);
-/* harmony import */ var _css_style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(962);
-/* harmony import */ var _css_media_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(876);
+
+// EXTERNAL MODULE: ./src/cookie.js
+var cookie = __webpack_require__(315);
+// EXTERNAL MODULE: ./src/mysql.js
+var mysql = __webpack_require__(340);
+// EXTERNAL MODULE: ./src/renderClientReport.js
+var renderClientReport = __webpack_require__(606);
+// EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js
+var injectStylesIntoStyleTag = __webpack_require__(379);
+var injectStylesIntoStyleTag_default = /*#__PURE__*/__webpack_require__.n(injectStylesIntoStyleTag);
+// EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/styleDomAPI.js
+var styleDomAPI = __webpack_require__(795);
+var styleDomAPI_default = /*#__PURE__*/__webpack_require__.n(styleDomAPI);
+// EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/insertBySelector.js
+var insertBySelector = __webpack_require__(569);
+var insertBySelector_default = /*#__PURE__*/__webpack_require__.n(insertBySelector);
+// EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js
+var setAttributesWithoutAttributes = __webpack_require__(565);
+var setAttributesWithoutAttributes_default = /*#__PURE__*/__webpack_require__.n(setAttributesWithoutAttributes);
+// EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/insertStyleElement.js
+var insertStyleElement = __webpack_require__(216);
+var insertStyleElement_default = /*#__PURE__*/__webpack_require__.n(insertStyleElement);
+// EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/styleTagTransform.js
+var styleTagTransform = __webpack_require__(589);
+var styleTagTransform_default = /*#__PURE__*/__webpack_require__.n(styleTagTransform);
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/plugins/slick-slider/slick.css
+var slick = __webpack_require__(852);
+;// CONCATENATED MODULE: ./src/plugins/slick-slider/slick.css
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (styleTagTransform_default());
+options.setAttributes = (setAttributesWithoutAttributes_default());
+
+      options.insert = insertBySelector_default().bind(null, "head");
+    
+options.domAPI = (styleDomAPI_default());
+options.insertStyleElement = (insertStyleElement_default());
+
+var update = injectStylesIntoStyleTag_default()(slick/* default */.Z, options);
+
+
+
+
+       /* harmony default export */ const slick_slider_slick = (slick/* default */.Z && slick/* default.locals */.Z.locals ? slick/* default.locals */.Z.locals : undefined);
+
+// EXTERNAL MODULE: ./src/plugins/busy-indicator/busy.js
+var busy = __webpack_require__(172);
+// EXTERNAL MODULE: ./src/css/style.css
+var style = __webpack_require__(962);
+// EXTERNAL MODULE: ./src/css/media.css
+var media = __webpack_require__(876);
+;// CONCATENATED MODULE: ./src/app.js
 /* provided dependency */ var $ = __webpack_require__(755);
 
 
@@ -112,10 +190,10 @@ if (showMenuBtn) {
 
 window.addEventListener(                                            // ON LOAD WINDOW
     'load', (event) => {
-        busyIndicator = new _plugins_busy_indicator_busy_js__WEBPACK_IMPORTED_MODULE_3__/* .BusyIndicator */ .E('.busy-indicator', 'busy-indicator-hide')
+        busyIndicator = new busy/* BusyIndicator */.E('.busy-indicator', 'busy-indicator-hide')
         // загружаем список клиентов
         busyIndicator.show();
-        (0,_mysql__WEBPACK_IMPORTED_MODULE_4__/* .getData */ .Yu)({
+        (0,mysql/* getData */.Yu)({
             tableName: 'client', 
             keys: ['*'], 
             orderBy: 'id', 
@@ -147,7 +225,7 @@ window.addEventListener(                                            // ON LOAD W
             // закупки клиента
             busyIndicator.show();
             var where = [{operator: 'where', field: 'client/id', cond: '=', value: selectedId}];
-            (0,_mysql__WEBPACK_IMPORTED_MODULE_4__/* .getView */ .Xe)({
+            (0,mysql/* getView */.Xe)({
                 tableName: 'purchaseMemberView', 
                 params: '0', 
                 keys: ['*'],
@@ -169,13 +247,13 @@ window.addEventListener(                                            // ON LOAD W
                     if (purchase_id != rowData['purchase/id']) {
                         purchase_id = rowData['purchase/id'];
                         // console.log('next purchase:', rowData);
-                        var newPurchase = (0,_renderClientReport__WEBPACK_IMPORTED_MODULE_5__/* .renderPurchaseHeader */ .nP)(rowData);
+                        var newPurchase = (0,renderClientReport/* renderPurchaseHeader */.nP)(rowData);
                         table.append(newPurchase.thead);
                         table.append(newPurchase.tbody);
                         tableBody = newPurchase.tbody;
                     }
                     // console.log('rowData:', rowData);
-                    var row = (0,_renderClientReport__WEBPACK_IMPORTED_MODULE_5__/* .renderPurchaseRow */ .Gv)(rowData);
+                    var row = (0,renderClientReport/* renderPurchaseRow */.Gv)(rowData);
                     // console.log('row:', row);
                     tableBody.append(row);
                 };
@@ -186,7 +264,7 @@ window.addEventListener(                                            // ON LOAD W
             // транзакции клиента
             busyIndicator.show();
             var where = [{operator: 'where', field: 'client/id', cond: '=', value: selectedId}];
-            (0,_mysql__WEBPACK_IMPORTED_MODULE_4__/* .getView */ .Xe)({
+            (0,mysql/* getView */.Xe)({
                 tableName: 'clientTransactionView', 
                 params: '0', 
                 keys: ['*'], // ['id','purchase/id','purchase/name','client/id','client/group','client/name','client/phone','client/account','purchase_content/id','product/id','product/group','product/name','product/order_quantity','count','distributed','product/primary_price','product/primary_currency','purchase_content/sale_price','purchase_content/sale_currency','purchase_content/shipping','cost','paid','torefound','refounded'], 
@@ -210,14 +288,14 @@ window.addEventListener(                                            // ON LOAD W
                     if (client_id != rowData['client/id']) {
                         client_id = rowData['client/id'];
                         // console.log('next purchase:', rowData);
-                        var newTransaction = (0,_renderClientReport__WEBPACK_IMPORTED_MODULE_5__/* .renderTransactionHeader */ .pb)(rowData);
+                        var newTransaction = (0,renderClientReport/* renderTransactionHeader */.pb)(rowData);
                         table.append(newTransaction.thead);
                         table.append(newTransaction.tbody);
                         tableBody = newTransaction.tbody;
                     }
 
                     // console.log('rowData:', rowData);
-                    var row = (0,_renderClientReport__WEBPACK_IMPORTED_MODULE_5__/* .renderTransactionRow */ .B5)(rowData);
+                    var row = (0,renderClientReport/* renderTransactionRow */.B5)(rowData);
                     // console.log('row:', row);
                     tableBody.append(row);
                 };
@@ -240,11 +318,11 @@ window.addEventListener(                                            // ON LOAD W
             table.innerHTML = '';
         });
 
-        USER.name = (0,_cookie__WEBPACK_IMPORTED_MODULE_6__/* .getCookie */ .ej)('name');
-        USER.email = (0,_cookie__WEBPACK_IMPORTED_MODULE_6__/* .getCookie */ .ej)('email');
-        USER.group = (0,_cookie__WEBPACK_IMPORTED_MODULE_6__/* .getCookie */ .ej)('group');
+        USER.name = (0,cookie/* getCookie */.ej)('name');
+        USER.email = (0,cookie/* getCookie */.ej)('email');
+        USER.group = (0,cookie/* getCookie */.ej)('group');
         // console.log('[window.onLoad] userName:', userName);
-        ID_TOKEN = USER.email ? (0,_cookie__WEBPACK_IMPORTED_MODULE_6__/* .getCookie */ .ej)(USER.email) : null;
+        ID_TOKEN = USER.email ? (0,cookie/* getCookie */.ej)(USER.email) : null;
         // console.log('[window.onLoad] idToken:', idToken);
         // console.log('[window.onLoad] slider-1: ', document.querySelector('.slider-1'));
         // console.log('[window.onLoad] slider-1 image: ', header_logo_img);
@@ -439,8 +517,8 @@ window.addEventListener(                                            // ON LOAD W
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, [38,668], () => (__webpack_require__(197)))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [38,668], () => (__webpack_require__(672)))
+/******/ 	__webpack_require__.O(undefined, [38,120], () => (__webpack_require__(197)))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [38,120], () => (__webpack_require__(524)))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

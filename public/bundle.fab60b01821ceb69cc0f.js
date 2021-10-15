@@ -5,15 +5,13 @@
 /***/ 413:
 /***/ ((__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) => {
 
-/* harmony import */ var _cookie__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(315);
-/* harmony import */ var _mysql__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(340);
-/* harmony import */ var _renderClientReport__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(606);
-/* harmony import */ var _plugins_slick_slider_slick_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(969);
-/* harmony import */ var _plugins_busy_indicator_busy_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(172);
-/* harmony import */ var _css_style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(962);
-/* harmony import */ var _css_media_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(876);
+/* harmony import */ var _cookie__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(315);
+/* harmony import */ var _mysql__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(340);
+/* harmony import */ var _renderClientReport__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(606);
+/* harmony import */ var _plugins_busy_indicator_busy_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(172);
+/* harmony import */ var _css_style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(962);
+/* harmony import */ var _css_media_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(876);
 /* provided dependency */ var $ = __webpack_require__(755);
-
 
 
 
@@ -112,10 +110,10 @@ if (showMenuBtn) {
 
 window.addEventListener(                                            // ON LOAD WINDOW
     'load', (event) => {
-        busyIndicator = new _plugins_busy_indicator_busy_js__WEBPACK_IMPORTED_MODULE_3__/* .BusyIndicator */ .E('.busy-indicator', 'busy-indicator-hide')
+        busyIndicator = new _plugins_busy_indicator_busy_js__WEBPACK_IMPORTED_MODULE_2__/* .BusyIndicator */ .E('.busy-indicator', 'busy-indicator-hide')
         // загружаем список клиентов
         busyIndicator.show();
-        (0,_mysql__WEBPACK_IMPORTED_MODULE_4__/* .getData */ .Yu)({
+        (0,_mysql__WEBPACK_IMPORTED_MODULE_3__/* .getData */ .Yu)({
             tableName: 'purchase', 
             keys: ['*'], 
             orderBy: 'id', 
@@ -135,7 +133,7 @@ window.addEventListener(                                            // ON LOAD W
             busyIndicator.hide();
         });
 
-        // загружаем информацию по выбранному клиенту
+        // загружаем информацию по выбранной закупке
         $('.search-purchase-select').on('select2:select', e => {
             console.log('selection id:', e.params.data);
             var selectedId = e.params.data.id;
@@ -146,8 +144,8 @@ window.addEventListener(                                            // ON LOAD W
             
             // закупки клиента
             busyIndicator.show();
-            var where = [{operator: 'where', field: 'client/id', cond: '=', value: selectedId}];
-            (0,_mysql__WEBPACK_IMPORTED_MODULE_4__/* .getView */ .Xe)({
+            var where = [{operator: 'where', field: 'purchase/id', cond: '=', value: selectedId}];
+            (0,_mysql__WEBPACK_IMPORTED_MODULE_3__/* .getView */ .Xe)({
                 tableName: 'purchaseMemberView', 
                 params: '0', 
                 keys: ['*'],
@@ -169,13 +167,13 @@ window.addEventListener(                                            // ON LOAD W
                     if (purchase_id != rowData['purchase/id']) {
                         purchase_id = rowData['purchase/id'];
                         // console.log('next purchase:', rowData);
-                        var newPurchase = (0,_renderClientReport__WEBPACK_IMPORTED_MODULE_5__/* .renderPurchaseHeader */ .nP)(rowData);
+                        var newPurchase = (0,_renderClientReport__WEBPACK_IMPORTED_MODULE_4__/* .renderPurchaseHeader */ .nP)(rowData);
                         table.append(newPurchase.thead);
                         table.append(newPurchase.tbody);
                         tableBody = newPurchase.tbody;
                     }
                     // console.log('rowData:', rowData);
-                    var row = (0,_renderClientReport__WEBPACK_IMPORTED_MODULE_5__/* .renderPurchaseRow */ .Gv)(rowData);
+                    var row = (0,_renderClientReport__WEBPACK_IMPORTED_MODULE_4__/* .renderPurchaseRow */ .Gv)(rowData);
                     // console.log('row:', row);
                     tableBody.append(row);
                 };
@@ -186,7 +184,7 @@ window.addEventListener(                                            // ON LOAD W
             // транзакции клиента
             busyIndicator.show();
             var where = [{operator: 'where', field: 'client/id', cond: '=', value: selectedId}];
-            (0,_mysql__WEBPACK_IMPORTED_MODULE_4__/* .getView */ .Xe)({
+            (0,_mysql__WEBPACK_IMPORTED_MODULE_3__/* .getView */ .Xe)({
                 tableName: 'clientTransactionView', 
                 params: '0', 
                 keys: ['*'], // ['id','purchase/id','purchase/name','client/id','client/group','client/name','client/phone','client/account','purchase_content/id','product/id','product/group','product/name','product/order_quantity','count','distributed','product/primary_price','product/primary_currency','purchase_content/sale_price','purchase_content/sale_currency','purchase_content/shipping','cost','paid','torefound','refounded'], 
@@ -210,14 +208,14 @@ window.addEventListener(                                            // ON LOAD W
                     if (client_id != rowData['client/id']) {
                         client_id = rowData['client/id'];
                         // console.log('next purchase:', rowData);
-                        var newTransaction = (0,_renderClientReport__WEBPACK_IMPORTED_MODULE_5__/* .renderTransactionHeader */ .pb)(rowData);
+                        var newTransaction = (0,_renderClientReport__WEBPACK_IMPORTED_MODULE_4__/* .renderTransactionHeader */ .pb)(rowData);
                         table.append(newTransaction.thead);
                         table.append(newTransaction.tbody);
                         tableBody = newTransaction.tbody;
                     }
 
                     // console.log('rowData:', rowData);
-                    var row = (0,_renderClientReport__WEBPACK_IMPORTED_MODULE_5__/* .renderTransactionRow */ .B5)(rowData);
+                    var row = (0,_renderClientReport__WEBPACK_IMPORTED_MODULE_4__/* .renderTransactionRow */ .B5)(rowData);
                     // console.log('row:', row);
                     tableBody.append(row);
                 };
@@ -240,11 +238,11 @@ window.addEventListener(                                            // ON LOAD W
             table.innerHTML = '';
         });
 
-        USER.name = (0,_cookie__WEBPACK_IMPORTED_MODULE_6__/* .getCookie */ .ej)('name');
-        USER.email = (0,_cookie__WEBPACK_IMPORTED_MODULE_6__/* .getCookie */ .ej)('email');
-        USER.group = (0,_cookie__WEBPACK_IMPORTED_MODULE_6__/* .getCookie */ .ej)('group');
+        USER.name = (0,_cookie__WEBPACK_IMPORTED_MODULE_5__/* .getCookie */ .ej)('name');
+        USER.email = (0,_cookie__WEBPACK_IMPORTED_MODULE_5__/* .getCookie */ .ej)('email');
+        USER.group = (0,_cookie__WEBPACK_IMPORTED_MODULE_5__/* .getCookie */ .ej)('group');
         // console.log('[window.onLoad] userName:', userName);
-        ID_TOKEN = USER.email ? (0,_cookie__WEBPACK_IMPORTED_MODULE_6__/* .getCookie */ .ej)(USER.email) : null;
+        ID_TOKEN = USER.email ? (0,_cookie__WEBPACK_IMPORTED_MODULE_5__/* .getCookie */ .ej)(USER.email) : null;
         // console.log('[window.onLoad] idToken:', idToken);
         // console.log('[window.onLoad] slider-1: ', document.querySelector('.slider-1'));
         // console.log('[window.onLoad] slider-1 image: ', header_logo_img);
@@ -439,8 +437,8 @@ window.addEventListener(                                            // ON LOAD W
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, [38,668], () => (__webpack_require__(197)))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [38,668], () => (__webpack_require__(413)))
+/******/ 	__webpack_require__.O(undefined, [38,120], () => (__webpack_require__(197)))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [38,120], () => (__webpack_require__(413)))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
