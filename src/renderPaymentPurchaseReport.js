@@ -37,7 +37,7 @@ export function renderPurchaseHeader(row) {
 export function renderPurchaseRow(row) {
     var rowHtml = `
         <tr class="purchase-row">
-            <th><input type="checkbox" name="" id="${row['id']}" checked></th>
+            <th><input type="checkbox" name="" id="chbx${row['id']}" checked></th>
             <td>${row['product/id']}</td>
             <td>${row['product/group']}</td>
             <td>${row['product/name']}</td>

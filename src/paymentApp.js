@@ -166,7 +166,7 @@ window.addEventListener(                                            // ON LOAD W
                     // console.log('row:', row);
                     tableBody.append(row);
                     try{
-                        let checkBox = row.querySelector(`#${rowData['id']}`);
+                        let checkBox = row.querySelector(`#chbx${rowData['id']}`);
                         console.log('row checkbox:', checkBox);
                     } catch (e) {
                         console.log('row error:', e);

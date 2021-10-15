@@ -50,7 +50,7 @@ function renderPurchaseHeader(row) {
 function renderPurchaseRow(row) {
     var rowHtml = `
         <tr class="purchase-row">
-            <th><input type="checkbox" name="" id="${row['id']}" checked></th>
+            <th><input type="checkbox" name="" id="chbx${row['id']}" checked></th>
             <td>${row['product/id']}</td>
             <td>${row['product/group']}</td>
             <td>${row['product/name']}</td>
@@ -311,7 +311,7 @@ window.addEventListener(                                            // ON LOAD W
                     // console.log('row:', row);
                     tableBody.append(row);
                     try{
-                        let checkBox = row.querySelector(`#${rowData['id']}`);
+                        let checkBox = row.querySelector(`#chbx${rowData['id']}`);
                         console.log('row checkbox:', checkBox);
                     } catch (e) {
                         console.log('row error:', e);
