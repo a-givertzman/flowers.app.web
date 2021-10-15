@@ -122,6 +122,8 @@ window.addEventListener(                                            // ON LOAD W
             console.log('selection id:', e.params.data);
             var selectedId = e.params.data.id;
 
+            var clientAccount = data.find(item => item.id == selectedId).account;
+            document.querySelector('#client-account').innerHTML = `Баланс: ${clientAccount} RUB`;
             // закупки клиента
             busyIndicator.show();
             var where = [{operator: 'where', field: 'client/id', cond: '=', value: selectedId}];

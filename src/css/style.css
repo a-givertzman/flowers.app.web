@@ -252,10 +252,10 @@ header{
 }
 
 .purchase-selector-title{
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 500;
     font-family: 'Rubik', serif;
-    line-height: 18px;
+    line-height: 20px;
     color: var(--nero-color);
     margin-bottom: 10px;
 }
