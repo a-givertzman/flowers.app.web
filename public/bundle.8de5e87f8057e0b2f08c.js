@@ -424,12 +424,12 @@ function renderTransactionRow(row) {
             <td>${row['value']} RUB</td>
             <td>${row['purchase_member/id']}</td>
             <td>
-                ${row['purchase_member/name']}
+                ${row['purchase/name']}
             </td>
             <td>
                 ${row['description']}
             </td>
-            <td>${row['client/account']} RUB</td>
+            <td>${row['client_account']} RUB</td>
         </tr>
     `;
     var newRow = document.createElement('tr');
