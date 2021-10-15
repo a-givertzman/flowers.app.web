@@ -70,13 +70,13 @@ export function renderTransactionHeader(row) {
             </tr>
             <tr class="transaction-row-header">
                 <th>id</th>
-                <th>date</th>
-                <th>account_owner</th>
-                <th>value</th>
+                <th>Дата</th>
+                <th>Организатор</th>
+                <th>Сумма</th>
                 <th>PuM/id</th>
-                <th>PuM/name</th>
+                <th>Товар</th>
                 <th>description</th>
-                <th>client/account</th>
+                <th>Баланс после операции</th>
             </tr>
         </thead>
     `;
