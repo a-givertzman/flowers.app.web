@@ -30,8 +30,6 @@ function renderPurchaseHeader(row) {
                 <th><span>Транспортные расходы</span></th>
                 <th><span>Стоимость</span></th>
                 <th><span>Оплатил</span></th>
-                <th><span>Сумма к возврату</span></th>
-                <th><span>Возвращено</span></th>
             </tr>
         </thead>
         `;
@@ -67,8 +65,6 @@ function renderPurchaseRow(row) {
             <td>${row['purchase_content/shipping']}</td>
             <td>${row['cost']}</td>
             <td class="paid">${row['paid']}</td>
-            <td class="torefound">${row['torefound']}</td>
-            <td class="refounded">${row['refounded']}</td>
         </tr>
     `;
     var newRow = document.createElement('tr');
@@ -293,9 +289,14 @@ window.addEventListener(                                            // ON LOAD W
                 var table = document.querySelector('table.purchase-items');
                 var tableBody;
                 var purchase_id = -1;
-                const result = Object.keys(responseData).map((key) => responseData[key]);
-                const purchaseData = [...new Set(result)];
-                console.log('responseData:', purchaseData);
+                const productId = Object.keys(responseData).map((key) => responseData[key]['product/id']);
+                console.log('productId:', productId);
+                const productIdSet = new Set(productId);
+                console.log('productIdSet:', productIdSet);
+                const purchaseData = Object.keys(responseData).map((key) => 
+                    responseData[key]['product/id'] in productIdSet ? responseData[key] : false
+                );
+                console.log('purchaseData:', purchaseData);
                 purchaseData.forEach (rowData => {
                     // var rowData = purchaseData[key];
                     
