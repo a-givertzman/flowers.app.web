@@ -1,7 +1,7 @@
 import { clearCookie, getCookie, setCookie } from './cookie';
 import { getView, getData, getJoinData } from './mysql';
-import { renderPurchaseHeader, renderPurchaseRow } from './renderClientReport';
-import { renderTransactionHeader, renderTransactionRow } from './renderClientReport';
+import { renderPurchaseHeader, renderPurchaseRow } from './renderPaymentPurchaseReport';
+import { renderTransactionHeader, renderTransactionRow } from './renderPaymentPurchaseReport';
 
 import {BusyIndicator} from '@plugins/busy-indicator/busy.js'
 
