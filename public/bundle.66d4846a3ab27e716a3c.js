@@ -256,6 +256,7 @@ async function getView(args) {
 
 async function apiRequest(args) {
     console.log('[mysql.apiRequest]');
+    console.log('args:', args);
 
     var tableName = args.tableName ? args.tableName : '';
     var params = args.params ? args.params : '0';
