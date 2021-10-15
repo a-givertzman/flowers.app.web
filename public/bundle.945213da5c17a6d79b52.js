@@ -750,6 +750,7 @@ window.addEventListener(                                            // ON LOAD W
 
                 var client_id = -1;
                 for (var key in responseData) {
+                    var rowData = responseData[key];
 
                     // если изменился id закупки
                     // то добавляем в таблицу заголовок этой закупки
@@ -762,7 +763,6 @@ window.addEventListener(                                            // ON LOAD W
                         tableBody = newTransaction.tbody;
                     }
 
-                    var rowData = responseData[key];
                     console.log('rowData:', rowData);
                     var row = renderTransactionRow(rowData);
                     console.log('row:', row);
