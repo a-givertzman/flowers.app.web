@@ -12,7 +12,7 @@ module.exports = {
         ],
         paymentApp: [
             './src/plugins/select2-4.1.0-rc.0/dist/js/select2.min.js',
-            './src/app.js', 
+            './src/paymentApp.js', 
         ],
     },
     optimization: {
