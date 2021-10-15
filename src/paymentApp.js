@@ -151,8 +151,8 @@ window.addEventListener(                                            // ON LOAD W
                 const result = Object.keys(responseData).map((key) => responseData[key]);
                 const purchaseData = [...new Set(result)];
                 console.log('responseData:', purchaseData);
-                for (var key in purchaseData) {
-                    var rowData = purchaseData[key];
+                purchaseData.forEach (rowData => {
+                    // var rowData = purchaseData[key];
                     
                     // если изменился id закупки
                     // то добавляем в таблицу заголовок этой закупки
@@ -172,7 +172,7 @@ window.addEventListener(                                            // ON LOAD W
                         console.log('row changed:', e.target);
                         console.log('row checked:', e.target.checked);
                     });                
-                };
+                });
 
             }).then( purchaseMemberData => {
 
