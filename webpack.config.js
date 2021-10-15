@@ -40,7 +40,7 @@ module.exports = {
     },
     plugins: [
         new HTMLPlugin({
-            title: 'Отчет участника',
+            title: 'Отчет по закупкам участника',
             template: './src/index.html',
             filename: 'index.html',
         }),
