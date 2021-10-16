@@ -1,5 +1,5 @@
-@import './normalize.css';
-@import './fonts.css';
+@import 'normalize.css';
+@import 'fonts.css';
 
 :root{
     --purchase-selector-item-shadow-color: rgba(91, 89, 89, 0.14);
