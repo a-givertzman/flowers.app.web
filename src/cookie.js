@@ -1,3 +1,4 @@
+'use strict';
 //
 export function getCookie(name) {
     let cookies = document.cookie
