@@ -47,7 +47,7 @@ async function apiRequest(args) {
     headers: {
     //   'Content-Type': 'application/json'
     // //   'Content-Type': 'application/x-www-form-urlencoded',
-        'Access-Control-Allow-Origin' : '*',
+        // 'Access-Control-Allow-Origin' : '*',
     },
     // redirect: 'follow', // manual, *follow, error
     referrerPolicy: "unsafe-url", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
