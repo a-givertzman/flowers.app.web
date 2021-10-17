@@ -1,8 +1,8 @@
 'use strict';
-import { getCookie, setCookie, clearCookie } from './cookie.js';
-import { getView, getData, getJoinData } from './mysql.js';
-import { renderPurchaseHeader, renderPurchaseRow } from './renderClientReport.js';
-import { renderTransactionHeader, renderTransactionRow } from './renderClientReport.js';
+import { getCookie, setCookie, clearCookie } from 'cookie.js';
+import { getView, getData, getJoinData } from 'mysql.js';
+import { renderPurchaseHeader, renderPurchaseRow } from 'renderClientReport.js';
+import { renderTransactionHeader, renderTransactionRow } from 'renderClientReport.js';
 // import '@plugins/slick-slider/slick.css';
 
 import { BusyIndicator } from './plugins/busy-indicator/busy.js';
@@ -15,7 +15,7 @@ import { BusyIndicator } from './plugins/busy-indicator/busy.js';
 // import header_logo_img from '@img/header-logo.png';
 // import { User } from './user';
 
-const domainPath = './';//'../../'; http://u1489690.isp.regruhosting.ru/
+const domainPath = '';//'../../'; http://u1489690.isp.regruhosting.ru/
 
 var data = null;
 var busyIndicator;
