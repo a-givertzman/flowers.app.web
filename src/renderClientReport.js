@@ -1,3 +1,4 @@
+"use strict";
 // рендерит заголовок закупки
 export function renderPurchaseHeader(row) {
     var theadHtml = `

@@ -1,3 +1,4 @@
+"use strict";
 import { submitSelectUserHandler } from "./app";
 
 export function createModalWindow(title, content, styleClass) {

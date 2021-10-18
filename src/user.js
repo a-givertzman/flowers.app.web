@@ -1,3 +1,4 @@
+"use strict";
 export class User {
     static firabaseRealTimeDataBase = 'https://anna-booking-page-default-rtdb.firebaseio.com/users.json';
     

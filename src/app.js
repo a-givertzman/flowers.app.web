@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 import { getCookie, setCookie, clearCookie } from 'cookie.js';
 import { getView, getData, getJoinData } from 'mysql.js';
 import { renderPurchaseHeader, renderPurchaseRow } from 'renderClientReport.js';

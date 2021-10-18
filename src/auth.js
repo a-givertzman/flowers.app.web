@@ -1,3 +1,4 @@
+"use strict";
 import { User } from "./user";
 
 const API_KEY = 'AIzaSyCRCdtAtsznHZLGn4ylnDPVID8d7y3TBq8';

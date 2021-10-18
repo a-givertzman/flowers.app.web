@@ -1,3 +1,4 @@
+"use strict";
 export function validateDateInput(value, useLimits = false) {
     if (isNaN(new Date(value).getTime())) {return false;}
     if (new Date(value).getTime() <= new Date().getTime()) {return false;}

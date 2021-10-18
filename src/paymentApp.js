@@ -1,3 +1,4 @@
+"use strict";
 // import { clearCookie, getCookie, setCookie } from './cookie';
 import { getView, getData, getJoinData } from './mysql';
 import { renderPurchaseHeader, renderPurchaseRow } from './renderPaymentPurchaseReport';

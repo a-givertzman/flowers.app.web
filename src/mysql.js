@@ -1,3 +1,4 @@
+"use strict";
 export async function getData(args) {
     console.log('[mysql.getData]');
     args.url = args.url ? args.url : domainPath + 'getData.php';

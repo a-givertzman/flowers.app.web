@@ -1,4 +1,4 @@
-// 'use strict';
+"use strict";
 export class BusyIndicator {
     constructor(selector, hiddenClassName) {
         this.selector = selector;
